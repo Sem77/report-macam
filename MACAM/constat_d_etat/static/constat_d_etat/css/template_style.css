@@ -1,0 +1,116 @@
+body{
+    text-decoration: none;
+}
+
+#id_format_oeuvre {
+    list-style-type: none;
+    display: flex;
+}
+
+#menu {
+    /*
+    position: fixed;
+    left: 0;
+    top: 40%;
+    width: 100%;
+    margin-top: -2.5em;*/
+}
+
+#menu li {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.principal{
+    width: 60%;
+    margin: auto;
+}
+
+.to-border {
+    margin-top: 30px;
+}
+
+h4 {
+    margin-top: 50px;
+}
+
+h2, h4{
+    text-align: center;
+    background-color: rgb(219, 216, 216);
+}
+
+#id-pic-table{
+    width: 100%;
+    border: 1px black solid;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#id-pic-table tr, #id-pic-table td {
+    border: 1px black solid;
+}
+
+.pic-row {
+    height: 300px;
+}
+
+.to-border{
+    width: 100%;
+    border: 1px black solid;
+    padding-left: 4px;
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
+
+.to-border-tr table {
+    width: 100%;
+    border: 1px black solid;    
+    border-collapse: collapse;
+}
+
+.to-border-tr td, .to-border-tr tr {
+    border: 1px black solid;    
+}
+
+#first {
+    margin-top: 10px;
+    /*border: 1px black solid;*/
+}
+
+.label-bold {
+    font-weight: bold;
+}
+
+caption {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    text-align: left;
+}
+
+.sub-caption {
+    font-style: italic;
+    margin-left: 10%;
+}
+
+input[type="submit"] {
+    margin-top: 7%;
+    width: 30%;
+    height: 40px;
+    background-color: rgb(156, 154, 154);
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+#dim-table {
+    width: 100%;
+}
+
+
+/*error style*/
+.errorlist {
+    list-style-type: none;
+    color: red;
+    font-weight: normal;
+}

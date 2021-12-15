@@ -1,0 +1,175 @@
+{% extends 'constat_d_etat/forms/template_peinture.html' %}
+
+{% block title %}
+    Formulaire peinture sur bois
+{% endblock %}
+
+{% block static_menu %}
+    <nav id="menu">
+        <ul>
+            <li><a href="#photos">Photos</a></li>
+            <li><a href="#informations">Informations</a></li>
+            <li><a href="#cadre">Cadre</a></li>
+            <li><a href="#couche_picturale">Couche picturale</a></li> 
+            <li><a href="#support">Support</a></li>
+            <li><a href="#emballage">Emballage</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+
+
+{% block artwork_type %}
+    peinture sur bois
+{% endblock %}
+
+{% block alteration_pic %}
+    
+{% endblock %}
+
+{% block alteration_pic_adhesion %}
+    
+{% endblock %}
+
+{% block option3 %}
+    
+{% endblock %}
+
+
+{% block option2 %}
+
+<div id="support">
+
+    <h4>Support</h4>
+
+    <div class="to-border-tr">
+        <table>
+            <caption>Constitution</caption>
+            <tr>
+                <td>{{ form.peinture_sur_bois_constitution_armure_toile }} <label for="{{ form.peinture_sur_bois_constitution_armure_toile.id_for_label }}">{{ form.peinture_sur_bois_constitution_armure_toile.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_constitution_armure_sergee }} <label for="{{ form.peinture_sur_bois_constitution_armure_sergee.id_for_label }}">{{ form.peinture_sur_bois_constitution_armure_sergee.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_constitution_armure_satin }} <label for="{{ form.peinture_sur_bois_constitution_armure_satin.id_for_label }}">{{ form.peinture_sur_bois_constitution_armure_satin.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_constitution_papier_maroufle }} <label for="{{ form.peinture_sur_bois_constitution_papier_maroufle.id_for_label }}">{{ form.peinture_sur_bois_constitution_papier_maroufle.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.peinture_sur_bois_constitution_tissage_toile }} <label for="{{ form.peinture_sur_bois_constitution_tissage_toile.id_for_label }}">{{ form.peinture_sur_bois_constitution_tissage_toile.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_constitution_lache }} <label for="{{ form.peinture_sur_bois_constitution_lache.id_for_label }}">{{ form.peinture_sur_bois_constitution_lache.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_constitution_moyen }} <label for="{{ form.peinture_sur_bois_constitution_moyen.id_for_label }}">{{ form.peinture_sur_bois_constitution_moyen.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_constitution_serre }} <label for="{{ form.peinture_sur_bois_constitution_serre.id_for_label }}">{{ form.peinture_sur_bois_constitution_serre.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.peinture_sur_bois_constitution_toile_originale }} <label for="{{ form.peinture_sur_bois_constitution_toile_originale.id_for_label }}">{{ form.peinture_sur_bois_constitution_toile_originale.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_constitution_rentoilage }} <label for="{{ form.peinture_sur_bois_constitution_rentoilage.id_for_label }}">{{ form.peinture_sur_bois_constitution_rentoilage.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_constitution_doublage }} <label for="{{ form.peinture_sur_bois_constitution_doublage.id_for_label }}">{{ form.peinture_sur_bois_constitution_doublage.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_constitution_doublage_aveugle }} <label for="{{ form.peinture_sur_bois_constitution_doublage_aveugle.id_for_label }}">{{ form.peinture_sur_bois_constitution_doublage_aveugle.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.peinture_sur_bois_constitution_agrandissement }} <label for="{{ form.peinture_sur_bois_constitution_agrandissement.id_for_label }}">{{ form.peinture_sur_bois_constitution_agrandissement.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_constitution_coutures }} <label for="{{ form.peinture_sur_bois_constitution_coutures.id_for_label }}">{{ form.peinture_sur_bois_constitution_coutures.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_constitution_noeuds_toile }} <label for="{{ form.peinture_sur_bois_constitution_noeuds_toile.id_for_label }}">{{ form.peinture_sur_bois_constitution_noeuds_toile.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_constitution_bande_tension }} <label for="{{ form.peinture_sur_bois_constitution_bande_tension.id_for_label }}">{{ form.peinture_sur_bois_constitution_bande_tension.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.peinture_sur_bois_constitution_transposition }} <label for="{{ form.peinture_sur_bois_constitution_transposition.id_for_label }}">{{ form.peinture_sur_bois_constitution_transposition.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_constitution_marouflage }} <label for="{{ form.peinture_sur_bois_constitution_marouflage.id_for_label }}">{{ form.peinture_sur_bois_constitution_marouflage.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_constitution_pieces }} <label for="{{ form.peinture_sur_bois_constitution_pieces.id_for_label }}">{{ form.peinture_sur_bois_constitution_pieces.label }}</label></td>
+                <td><label for="{{ form.peinture_sur_bois_constitution_nombre_pieces.id_for_label }}">{{ form.peinture_sur_bois_constitution_nombre_pieces.label }}</label> {{ form.peinture_sur_bois_constitution_nombre_pieces }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.peinture_sur_bois_constitution_inscriptions }} <label for="{{ form.peinture_sur_bois_constitution_inscriptions.id_for_label }}">{{ form.peinture_sur_bois_constitution_inscriptions.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_constitution_etiquettes }} <label for="{{ form.peinture_sur_bois_constitution_etiquettes.id_for_label }}">{{ form.peinture_sur_bois_constitution_etiquettes.label }}</label></td>
+                <td colspan="2">{{ form.peinture_sur_bois_constitution_marques_cachets }} <label for="{{ form.peinture_sur_bois_constitution_marques_cachets.id_for_label }}">{{ form.peinture_sur_bois_constitution_marques_cachets.label }}</label></td>
+            </tr>
+        </table>
+
+        <table>
+            <caption>Tension</caption>
+
+            <tr>
+                <td>{{ form.peinture_sur_bois_tension_tension_correcte }} <label for="{{ form.peinture_sur_bois_tension_tension_correcte.id_for_label }}">{{ form.peinture_sur_bois_tension_tension_correcte.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_tension_toile_tres_lache }} <label for="{{ form.peinture_sur_bois_tension_toile_tres_lache.id_for_label }}">{{ form.peinture_sur_bois_tension_toile_tres_lache.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_tension_toile_lache }} <label for="{{ form.peinture_sur_bois_tension_toile_lache.id_for_label }}">{{ form.peinture_sur_bois_tension_toile_lache.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_tension_toile_trop_tendue }} <label for="{{ form.peinture_sur_bois_tension_toile_trop_tendue.id_for_label }}">{{ form.peinture_sur_bois_tension_toile_trop_tendue.label }}</label></td>
+            </tr>
+        </table>
+
+        <table>
+
+            <caption>Altérations</caption>
+
+            <tr>
+                <td>{{ form.peinture_sur_bois_alterations_toile_cuite }} <label for="{{ form.peinture_sur_bois_alterations_toile_cuite.id_for_label }}">{{ form.peinture_sur_bois_alterations_toile_cuite.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_alterations_toile_impregnee }} <label for="{{ form.peinture_sur_bois_alterations_toile_impregnee.id_for_label }}">{{ form.peinture_sur_bois_alterations_toile_impregnee.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_alterations_aureoles }} <label for="{{ form.peinture_sur_bois_alterations_aureoles.id_for_label }}">{{ form.peinture_sur_bois_alterations_aureoles.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_alterations_coulures }} <label for="{{ form.peinture_sur_bois_alterations_coulures.id_for_label }}">{{ form.peinture_sur_bois_alterations_coulures.label }}</label></td>
+            </tr>
+
+            <tr>
+                <td>{{ form.peinture_sur_bois_alterations_dechirures_simples }} <label for="{{ form.peinture_sur_bois_alterations_dechirures_simples.id_for_label }}">{{ form.peinture_sur_bois_alterations_dechirures_simples.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_alterations_dechirures_complexes }} <label for="{{ form.peinture_sur_bois_alterations_dechirures_complexes.id_for_label }}">{{ form.peinture_sur_bois_alterations_dechirures_complexes.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_alterations_coupure }} <label for="{{ form.peinture_sur_bois_alterations_coupure.id_for_label }}">{{ form.peinture_sur_bois_alterations_coupure.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_alterations_lacerations }} <label for="{{ form.peinture_sur_bois_alterations_lacerations.id_for_label }}">{{ form.peinture_sur_bois_alterations_lacerations.label }}</label></td>
+            </tr>
+
+            <tr>
+                <td>{{ form.peinture_sur_bois_alterations_percement }} <label for="{{ form.peinture_sur_bois_alterations_percement.id_for_label }}">{{ form.peinture_sur_bois_alterations_percement.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_alterations_eraflures }} <label for="{{ form.peinture_sur_bois_alterations_eraflures.id_for_label }}">{{ form.peinture_sur_bois_alterations_eraflures.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_alterations_cloques }} <label for="{{ form.peinture_sur_bois_alterations_cloques.id_for_label }}">{{ form.peinture_sur_bois_alterations_cloques.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_alterations_poussiere }} <label for="{{ form.peinture_sur_bois_alterations_poussiere.id_for_label }}">{{ form.peinture_sur_bois_alterations_poussiere.label }}</label></td>
+            </tr>
+
+            <tr>
+                <td>{{ form.peinture_sur_bois_alterations_encrassement }} <label for="{{ form.peinture_sur_bois_alterations_encrassement.id_for_label }}">{{ form.peinture_sur_bois_alterations_encrassement.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_alterations_trous_envol }} <label for="{{ form.peinture_sur_bois_alterations_trous_envol.id_for_label }}">{{ form.peinture_sur_bois_alterations_trous_envol.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_alterations_moisissures }} <label for="{{ form.peinture_sur_bois_alterations_moisissures.id_for_label }}">{{ form.peinture_sur_bois_alterations_moisissures.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_alterations_infestation_active }} <label for="{{ form.peinture_sur_bois_alterations_infestation_active.id_for_label }}">{{ form.peinture_sur_bois_alterations_infestation_active.label }}</label></td>
+            </tr>
+
+        </table>
+
+        <table>
+
+            <caption>Déformations</caption>
+
+            <tr>
+                <td>{{ form.peinture_sur_bois_deformations_localisees }} <label for="{{ form.peinture_sur_bois_deformations_localisees.id_for_label }}">{{ form.peinture_sur_bois_deformations_localisees.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_deformations_generales }} <label for="{{ form.peinture_sur_bois_deformations_generales.id_for_label }}">{{ form.peinture_sur_bois_deformations_generales.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_deformations_poche }} <label for="{{ form.peinture_sur_bois_deformations_poche.id_for_label }}">{{ form.peinture_sur_bois_deformations_poche.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_deformations_en_drapeau }} <label for="{{ form.peinture_sur_bois_deformations_en_drapeau.id_for_label }}">{{ form.peinture_sur_bois_deformations_en_drapeau.label }}</label></td>
+            </tr>
+
+            <tr>
+                <td>{{ form.peinture_sur_bois_deformations_plis }} <label for="{{ form.peinture_sur_bois_deformations_plis.id_for_label }}">{{ form.peinture_sur_bois_deformations_plis.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_deformations_plis_angles }} <label for="{{ form.peinture_sur_bois_deformations_plis_angles.id_for_label }}">{{ form.peinture_sur_bois_deformations_plis_angles.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_deformations_retraits }} <label for="{{ form.peinture_sur_bois_deformations_retraits.id_for_label }}">{{ form.peinture_sur_bois_deformations_retraits.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_deformations_effets_vagues }} <label for="{{ form.peinture_sur_bois_deformations_effets_vagues.id_for_label }}">{{ form.peinture_sur_bois_deformations_effets_vagues.label }}</label></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>{{ form.peinture_sur_bois_deformations_scrupules }} <label for="{{ form.peinture_sur_bois_deformations_scrupules.id_for_label }}">{{ form.peinture_sur_bois_deformations_scrupules.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_deformations_enfoncement_par_la_face }} <label for="{{ form.peinture_sur_bois_deformations_enfoncement_par_la_face.id_for_label }}">{{ form.peinture_sur_bois_deformations_enfoncement_par_la_face.label }}</label></td>
+                <td>{{ form.peinture_sur_bois_deformations_enfoncement_par_le_revers }} <label for="{{ form.peinture_sur_bois_deformations_enfoncement_par_le_revers.id_for_label }}">{{ form.peinture_sur_bois_deformations_enfoncement_par_le_revers.label }}</label></td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <table id="tab-photos-significatives-support">
+
+            <caption>Photos significatives</caption>
+
+            <input type="button" id="btn-photos-significatives-support" value="Ajouter photo">
+
+            <tr>
+                <td>Photo de détail</td>
+                <td>Emplacement</td>
+            </tr>
+            
+        </table>
+
+        <input value="0" name="nombre-photos-significatives-support" id="nombre-photos-significatives-support" hidden>
+    </div>
+</div>
+<!-- Place to put the pics of alterations -->
+
+{% endblock %}

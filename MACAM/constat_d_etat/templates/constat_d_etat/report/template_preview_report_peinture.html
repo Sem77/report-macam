@@ -1,0 +1,315 @@
+{% extends 'constat_d_etat/report/template_preview_report_art.html' %}
+
+{% block option1 %}
+
+<div id="couche_picturale">
+
+    <h4>Couche picturale</h4>
+
+    <div class="to-border-tr">
+        <table>
+
+            <caption>Altérations optiques</caption>
+            
+            <tr>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.usures == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_alterations_optiques_usures.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.griffures == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_alterations_optiques_griffures.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.impression_de_texture == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_alterations_optiques_impression_texture.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.marques_de_chassis == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_alterations_optiques_marques_chassis.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.trous_d_envol == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_alterations_optiques_trous_envol.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.dejections_d_insectes == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_alterations_optiques_dejections_insectes.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.transparences_accrues == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_alterations_optiques_transparences_accrues.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.repeints_alteres == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_alterations_optiques_repeints_alteres.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.mastics_debordants == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_alterations_optiques_matics_debordants.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.traces_de_dorure == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_alterations_optiques_traces_de_dorure.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.projections == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_alterations_optiques_projections.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.ecrasement_de_matiere == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_alterations_optiques_ecrasement_de_matiere.label }}</label>
+                </td>
+            </tr>
+
+        </table>
+
+        <table>
+            <p class="sub-caption">Vernis</p>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td colspan="2">
+                    {% if report.couche_picturale.vernis.homogeneite_satisfaisante == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_vernis_homogeneite_satisfaisante.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.couche_picturale.vernis.jaunissement == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_vernis_jaunissement.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.vernis.encrassement == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_vernis_encrassement.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.vernis.chancis == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_vernis_chancis.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.vernis.coulures == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_vernis_coulures.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.couche_picturale.vernis.inegalite_de_surface == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_vernis_inegalite_de_surface.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.vernis.lacunes == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_vernis_lacunes.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.vernis.soulevements == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_vernis_soulevements.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.vernis.chevauchement_d_ecaillement == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_vernis_chevauchement_ecaillement.label }}</label>
+                </td>
+            </tr>
+        </table>
+
+        <table>
+
+            <caption>Adhésion</caption>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td colspan="2">
+                    {% if report.couche_picturale.adhesion.satisfaisante == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_adhesion_satisfaisante.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.couche_picturale.adhesion.deplacage == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_adhesion_deplacage.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.adhesion.epidermage == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_adhesion_epidermage.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.adhesion.cloque == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_adhesion_cloque.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.adhesion.deplacement_d_ecailles == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_adhesion_deplacement_ecailles.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.couche_picturale.adhesion.zones_pulverilentes == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_adhesion_zones_pulverilentes.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.adhesion.transposition == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_adhesion_transposition.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.adhesion.brulures == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_adhesion_brulures.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.adhesion.lacunes == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_adhesion_lacunes.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.couche_picturale.adhesion.soulevements == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_adhesion_soulevement.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.adhesion.chevauchement_d_ecailles == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_adhesion_chevauchement_ecailles.label }}</label>
+                </td>
+            </tr>
+
+        </table>
+
+        <table>
+
+            <caption>Cohésion</caption>
+
+            <p class="sub-caption">Craquelures prématurées: </p>
+
+            <tr>
+                <td>
+                    {% if report.couche_picturale.craquelure_premature.rides == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_craquelure_prematuree_rides.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_premature.gercures == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_craquelure_prematuree_gercures.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_premature.crevasses == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_craquelure_prematuree_crevasses.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_premature.craquelures_fermees == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_craquelure_prematuree_craquelures_fermees.label }}</label>
+                </td>
+            </tr>                           
+
+        </table>
+
+        <table>
+
+            <p class="sub-caption">Craquelures d'âge :</p>
+
+            <tr>
+                <td colspan="2">
+                    {% if report.couche_picturale.craquelure_d_age.reseau_generalise_fin == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_craquelure_age_reseau_generalise_fin.label }}</label>
+                </td>
+                <td colspan="2">
+                    {% if report.couche_picturale.craquelure_d_age.reseau_generalise_prononce == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_craquelure_age_reseau_generalise_prononce.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.couche_picturale.craquelure_d_age.limite_a_une_zone == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_craquelure_age_limites_a_une_zone.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_d_age.circulaire == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_craquelure_age_circulaire.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_d_age.diagonales == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_craquelure_age_diagonales.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_d_age.horizontale == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_craquelure_age_horizontales_verticales.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.couche_picturale.craquelure_d_age.en_echelle == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_craquelure_age_en_echelle.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_d_age.en_escargot == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_craquelure_age_en_escargot.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_d_age.faiencage == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_craquelure_age_faiencage.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_d_age.pavimenteuses == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.peinture_craquelure_age_pavimenteuses.label }}</label>
+                </td>
+            </tr>                    
+
+        </table>
+    </div>
+</div>
+
+<!-- Place to put the pics of alterations -->
+<div>
+    <table id="tab-photos-significatives-couche-picturale">
+
+        <caption>Photos significatives</caption>
+
+        <tr>
+            <td>Photo de détail</td>
+            <td>Emplacement</td>
+        </tr>
+
+        {% for pic in pht_signs_cp %}
+        <tr>
+            <td>
+                {% if pic.photo.url != '' %}
+                <img src="{{ pic.photo.url }}" width="200">
+                {% endif %}
+            </td>
+            <td>
+                {% if pic.photo_avec_emplacement.url != '' %}
+                <img src="{{ pic.photo_avec_emplacement.url }}" width="200">
+                {% endif %}
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Nature de l'altération: {{ pic.nature_alteration }}</td>
+            <td>
+                {% if pic.face %}
+                <input type="radio" checked> <label>Face</label><br>
+                <input type="radio" > <label>Revers</label><br>
+                {% else %}
+                <input type="radio" > <label>Face</label><br>
+                <input type="radio" checked> <label>Revers</label><br>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+
+</div>   
+
+{% endblock%}

@@ -1,0 +1,127 @@
+body {
+	margin: 0;
+	padding: 0;
+	/*background-color: rgb(78, 78, 78);*/
+	background-image: url('../img/login_bg.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	font-family: sans-serif;
+	color: rgb(255, 255, 255);
+}
+
+.principal {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.box {
+	display: flex;
+	justify-content: space-around;
+	font-size: 1.1em;
+}
+
+.box input {
+	/*display: inline-block;*/
+	font-size: 10px;
+	transition: .30s;
+}
+
+/*
+.search-bar {
+    display: block;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}*/
+
+.box input[type="text"] {
+	background: #fff;
+	width: 40%;
+	height: 30px;
+	border: none;
+	outline: none;
+	padding: 0 25px;
+	border-radius: 25px 0 0 25px;
+}
+
+.box input[type="submit"] {
+	border-radius: 0 25px 25px 0;
+	width: 16%;
+	height: 30px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background: #4caf50;
+	color: #fff;
+	font-size: 0.8em;
+}
+
+.box input[type="submit"]:hover {
+	background: #70c272;
+}
+
+.box a {
+	color: #4caf50;
+}
+
+.criterion {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.box ul {
+	list-style-type: none;
+	width: 140px;
+}
+
+.box select {
+	border-radius: 3px;
+	height: 25px;
+	background-color: rgb(70, 194, 72, 0.4);
+	color: white;
+}
+
+.list-arts {
+	padding: 20px;
+	margin-top: 30px;
+	background-color: rgba(224, 208, 222, 0.479);
+	color: white;
+}
+
+.pic-art:hover {
+	margin-left: 5px;
+}
+
+.pagination-button {
+	margin-top: 35px;
+	margin-bottom: 25px;
+}
+
+.btn {
+	border-radius: 6px;
+	height: 30px;
+	background-color: rgba(30, 168, 32, 0.753);
+	color: white;
+	padding-left: 20px;
+	padding-right: 20px;
+	cursor: pointer;
+	border: 1px solid #174e19;
+	outline: none;
+}
+
+.btn:hover {
+	background-color: rgba(87, 204, 89, 0.753);
+}
+
+/*
+@media screen and (max-width: 1024px) {
+	.list-arts {
+		width: 100%;
+	}
+
+	.arts-table {
+		width: 100%;
+	}
+}*/

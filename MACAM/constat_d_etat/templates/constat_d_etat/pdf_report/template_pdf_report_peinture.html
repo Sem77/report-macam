@@ -1,0 +1,294 @@
+{% extends 'constat_d_etat/pdf_report/template_pdf_report_art.html' %}
+
+{% block option1 %}
+
+<div id="couche_picturale">
+
+    <h4>Couche picturale</h4>
+
+    <div class="to-border-tr">
+        <h3>Altérations optiques</h3>
+        <table>            
+            <tr>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.usures == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_alterations_optiques_usures.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.griffures == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_alterations_optiques_griffures.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.impression_de_texture == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_alterations_optiques_impression_texture.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.marques_de_chassis == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_alterations_optiques_marques_chassis.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.trous_d_envol == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_alterations_optiques_trous_envol.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.dejections_d_insectes == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_alterations_optiques_dejections_insectes.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.transparences_accrues == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_alterations_optiques_transparences_accrues.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.repeints_alteres == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_alterations_optiques_repeints_alteres.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.mastics_debordants == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_alterations_optiques_matics_debordants.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.traces_de_dorure == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_alterations_optiques_traces_de_dorure.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.projections == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_alterations_optiques_projections.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.alterations_optiques.ecrasement_de_matiere == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} &nbsp; <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_alterations_optiques_ecrasement_de_matiere.label }}</label>
+                </td>
+            </tr>
+
+        </table>
+
+        <table>
+            <p class="sub-caption">Vernis</p>
+
+            {% if report.couche_picturale.vernis.homogeneite_satisfaisante == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+            {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_vernis_homogeneite_satisfaisante.label }}</label>
+            
+            <tr>
+                <td>
+                    {% if report.couche_picturale.vernis.jaunissement == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_vernis_jaunissement.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.vernis.encrassement == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_vernis_encrassement.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.vernis.chancis == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_vernis_chancis.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.vernis.coulures == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_vernis_coulures.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.couche_picturale.vernis.inegalite_de_surface == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_vernis_inegalite_de_surface.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.vernis.lacunes == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_vernis_lacunes.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.vernis.soulevements == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_vernis_soulevements.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.vernis.chevauchement_d_ecaillement == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_vernis_chevauchement_ecaillement.label }}</label>
+                </td>
+            </tr>
+        </table>
+
+        <h3>Adhésion</h3>
+        <table>
+            {% if report.couche_picturale.adhesion.satisfaisante == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+            {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_adhesion_satisfaisante.label }}</label>
+            
+            <tr>
+                <td>
+                    {% if report.couche_picturale.adhesion.deplacage == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_adhesion_deplacage.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.adhesion.epidermage == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_adhesion_epidermage.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.adhesion.cloque == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_adhesion_cloque.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.adhesion.deplacement_d_ecailles == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_adhesion_deplacement_ecailles.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.couche_picturale.adhesion.zones_pulverilentes == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_adhesion_zones_pulverilentes.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.adhesion.transposition == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_adhesion_transposition.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.adhesion.brulures == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_adhesion_brulures.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.adhesion.lacunes == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_adhesion_lacunes.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.couche_picturale.adhesion.soulevements == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_adhesion_soulevement.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.adhesion.chevauchement_d_ecailles == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_adhesion_chevauchement_ecailles.label }}</label>
+                </td>
+            </tr>
+
+        </table>
+
+        <h3>Cohésion</h3>
+        <table>
+            <p class="sub-caption">Craquelures prématurées: </p>
+
+            <tr>
+                <td>
+                    {% if report.couche_picturale.craquelure_premature.rides == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_craquelure_prematuree_rides.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_premature.gercures == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_craquelure_prematuree_gercures.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_premature.crevasses == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_craquelure_prematuree_crevasses.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_premature.craquelures_fermees == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_craquelure_prematuree_craquelures_fermees.label }}</label>
+                </td>
+            </tr>                           
+
+        </table>
+
+        <table>
+
+            <p class="sub-caption">Craquelures d'âge :</p>
+
+            <tr>
+                <td colspan="2">
+                    {% if report.couche_picturale.craquelure_d_age.reseau_generalise_fin == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_craquelure_age_reseau_generalise_fin.label }}</label>
+                </td>
+                <td colspan="2">
+                    {% if report.couche_picturale.craquelure_d_age.reseau_generalise_prononce == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_craquelure_age_reseau_generalise_prononce.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.couche_picturale.craquelure_d_age.limite_a_une_zone == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_craquelure_age_limites_a_une_zone.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_d_age.circulaire == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_craquelure_age_circulaire.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_d_age.diagonales == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_craquelure_age_diagonales.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_d_age.horizontale == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_craquelure_age_horizontales_verticales.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.couche_picturale.craquelure_d_age.en_echelle == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_craquelure_age_en_echelle.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_d_age.en_escargot == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_craquelure_age_en_escargot.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_d_age.faiencage == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_craquelure_age_faiencage.label }}</label>
+                </td>
+                <td>
+                    {% if report.couche_picturale.craquelure_d_age.pavimenteuses == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_craquelure_age_pavimenteuses.label }}</label>
+                </td>
+            </tr>                    
+
+        </table>
+    </div>
+</div>
+
+<!-- Place to put the pics of alterations -->
+<div>
+    <table>
+        <br>
+        <caption>Photos significatives</caption>
+
+        <tr>
+            <td>Photo de détail</td>
+            <td>Emplacement</td>
+        </tr>
+
+        {% for pic in pht_signs_cp %}
+        <tr class="pht-sign">
+            <td>
+                {% if pic.photo.path != '' %}
+                <img src="{{ pic.photo.path }}" width="1000" height="1000">
+                {% endif %}
+            </td>
+            <td>
+                {% if pic.photo_avec_emplacement.path != '' %}
+                <img src="{{ pic.photo_avec_emplacement.path }}" width="1000" height="1000">
+                {% endif %}
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Nature de l'altération: {{ pic.nature_alteration }}</td>
+            <td>
+                {% if pic.face %}
+                Face
+                {% else %}
+                Revers
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+</div>
+
+{% endblock%}

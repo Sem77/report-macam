@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'constat_d_etat/css/nav_bar_style.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'constat_d_etat/css/list_art_style.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'constat_d_etat/css/preview-art-style.css' %}" />
+        <script src="{% static 'constat_d_etat/js/show_nav_bar.js' %}" defer></script>
+    </head>
+
+    <body>
+
+        {% include 'constat_d_etat/template_nav_bar.html' %}
+
+        <div class="principal">
+
+            <div class="box">   
+                {% include 'constat_d_etat/forms/form_search_art.html'%} 
+            </div>
+            
+            <div class="list-arts">
+                <table>
+                    <tr>
+                        {% if art.photo_face.url != "" %}
+                            <td><a href="{{ art.photo_face.url }}"><img src="{{ art.photo_face.url }}" width="220" height="250"></a></td>
+                        {% else %}
+                                <td><img src="{% static 'constat_d_etat/img/image-missing.jpg' %}" width="220" height="250"></td>
+                        {% endif %}
+                        
+                        {% if art.photo_revers.url != "" %}
+                            <td><a href="{{ art.photo_revers.url }}"><img src="{{ art.photo_revers.url }}" width="220" height="250"></a></td>
+                        {% else %}
+                                <td><img src="{% static 'constat_d_etat/img/image-missing.jpg' %}" width="220" height="250"></td>
+                        {% endif %}
+                    </tr>
+                </table>
+
+                <table>
+                    <tr>
+                        <td><label>Numéro d'inventaire : </label></td>
+                        <td>{{ art.numero_inventaire }}</td>
+                    </tr>
+                    <tr>
+                        <td><label>Titre : </label></td>
+                        <td>{{ art.titre }}</td>
+                    </tr>
+                    <tr>
+                        <td><label>Auteur : </label></td>
+                        <td>{{ art.auteur }}</td>
+                    </tr>
+                    <tr>
+                        <td><label>Format : </label></td>
+                        <td>{{ art.format_oeuvre }}</td>
+                    </tr>
+                    <tr>
+                        <td><label>Dimensions : </label></td>
+                        <td>{{ art.largeur_sans_cadre }}cm x {{ art.hauteur_sans_cadre }}cm</td>
+                    </tr>
+                </table>
+
+                <a href="{% url 'constat:form_report' art_type=art_type art_work_id=art.id %}"><button class="btn">Nouveau constat</button></a>
+            </div>
+            
+            <table class="report-list">
+                <thead>
+                    <th>Date</th>
+                    <th>Auteur</th>
+                    <th>Consulter</th>
+                    <th>PDF</th>
+                </thead>
+            {% for report in reports %}
+
+                <hr>
+
+                <tr>
+                    <td>{{ report.date }}</td>
+                    <td>{{ report.auteur }}</td>
+                    <td><a href="{% url 'constat:show_report' art_type=art_type art_work_id=art.id report_id=report.id %}"><button class="btn">Voir</button></a></td>
+                    <td><a href="{% url 'constat:generate_pdf_file' art_type=art_type art_work_id=art.id report_id=report.id %}"><button class="btn">pdf</button></a></td>
+                </tr>                
+
+            {% endfor %}
+            </table>
+
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+    </body>
+
+</html>
+

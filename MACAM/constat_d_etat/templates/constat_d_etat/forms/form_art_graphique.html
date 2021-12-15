@@ -1,0 +1,347 @@
+{% extends 'constat_d_etat/forms/template_art.html' %}
+
+{% block title %}
+    Formulaire art graphique
+{% endblock %}
+
+{% block static_menu %}
+    <nav id="menu">
+        <ul>
+            <li><a href="#photos">Photos</a></li>
+            <li><a href="#informations">Informations</a></li>
+            <li><a href="#cadre">Cadre</a></li>
+            <li><a href="#materiaux_support">Matériaux et support</a></li>
+            <li><a href="#technique1">Technique</a></li>
+            <li><a href="#support">Support</a></li>
+            <li><a href="#technique2">Technique</a></li>
+            <li><a href="#montage">Montage</a></li>
+            <li><a href="#emballage">Emballage</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+
+
+{% block artwork_type %}
+    art graphique
+{% endblock %}
+
+{% block alteration_pic_cadre %}
+    
+{% endblock %}
+
+{% block option3 %}
+    
+{% endblock %}
+
+
+{% block option1 %}
+
+<div id="materiaux_support">
+
+    <h4>Matériaux et support</h4>
+
+    {{ form.art_graphique_materiaux_support_revers_inacessible }} <label for="{{ form.art_graphique_materiaux_support_revers_inacessible.id_for_label }}">{{ form.art_graphique_materiaux_support_revers_inacessible.label }}</label>
+
+    <div class="to-border-tr">
+        <table>            
+            <tr>
+                <td>{{ form.art_graphique_materiaux_support_carton }} <label for="{{ form.art_graphique_materiaux_support_carton.id_for_label }}">{{ form.art_graphique_materiaux_support_carton.label }}</label></td>
+                <td>{{ form.art_graphique_materiaux_support_velin }} <label for="{{ form.art_graphique_materiaux_support_velin.id_for_label }}">{{ form.art_graphique_materiaux_support_velin.label }}</label></td>
+                <td>{{ form.art_graphique_materiaux_support_papyrus }} <label for="{{ form.art_graphique_materiaux_support_papyrus.id_for_label }}">{{ form.art_graphique_materiaux_support_papyrus.label }}</label></td>
+                <td>{{ form.art_graphique_materiaux_support_ivoire }} <label for="{{ form.art_graphique_materiaux_support_ivoire.id_for_label }}">{{ form.art_graphique_materiaux_support_ivoire.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_materiaux_support_cuir }} <label for="{{ form.art_graphique_materiaux_support_cuir.id_for_label }}">{{ form.art_graphique_materiaux_support_cuir.label }}</label></td>
+                <td>{{ form.art_graphique_materiaux_support_parchemin }} <label for="{{ form.art_graphique_materiaux_support_parchemin.id_for_label }}">{{ form.art_graphique_materiaux_support_parchemin.label }}</label></td>
+                <td>{{ form.art_graphique_materiaux_support_soie }} <label for="{{ form.art_graphique_materiaux_support_soie.id_for_label }}">{{ form.art_graphique_materiaux_support_soie.label }}</label></td>
+                <td>{{ form.art_graphique_materiaux_support_toile }} <label for="{{ form.art_graphique_materiaux_support_toile.id_for_label }}">{{ form.art_graphique_materiaux_support_toile.label }}</label></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td>{{ form.art_graphique_materiaux_support_papier }} <label for="{{ form.art_graphique_materiaux_support_papier.id_for_label }}">{{ form.art_graphique_materiaux_support_papier.label }}</label></td>
+                <td>{{ form.art_graphique_materiaux_support_papier_machine }} <label for="{{ form.art_graphique_materiaux_support_papier_machine.id_for_label }}">{{ form.art_graphique_materiaux_support_papier_machine.label }}</label></td>
+                <td>{{ form.art_graphique_materiaux_support_papier_main }} <label for="{{ form.art_graphique_materiaux_support_papier_main.id_for_label }}">{{ form.art_graphique_materiaux_support_papier_main.label }}</label></td>
+            </tr>
+
+            <tr>
+                <td>{{ form.art_graphique_materiaux_support_papier_oriental }} <label for="{{ form.art_graphique_materiaux_support_papier_oriental.id_for_label }}">{{ form.art_graphique_materiaux_support_papier_oriental.label }}</label></td>
+                <td>{{ form.art_graphique_materiaux_support_papier_occidental }} <label for="{{ form.art_graphique_materiaux_support_papier_occidental.id_for_label }}">{{ form.art_graphique_materiaux_support_papier_occidental.label }}</label></td>
+                <td>{{ form.art_graphique_materiaux_support_papier_velin }} <label for="{{ form.art_graphique_materiaux_support_papier_velin.id_for_label }}">{{ form.art_graphique_materiaux_support_papier_velin.label }}</label></td>
+            </tr>
+
+            <tr>
+                <td>{{ form.art_graphique_materiaux_support_papier_base_fibre_vegetale }} <label for="{{ form.art_graphique_materiaux_support_papier_base_fibre_vegetale.id_for_label }}">{{ form.art_graphique_materiaux_support_papier_base_fibre_vegetale.label }}</label></td>
+                <td>{{ form.art_graphique_materiaux_support_papier_a_base_de_bois }} <label for="{{ form.art_graphique_materiaux_support_papier_a_base_de_bois.id_for_label }}">{{ form.art_graphique_materiaux_support_papier_a_base_de_bois.label }}</label></td>
+                <td>{{ form.art_graphique_materiaux_support_filigrane }} <label for="{{ form.art_graphique_materiaux_support_filigrane.id_for_label }}">{{ form.art_graphique_materiaux_support_filigrane.label }}</label></td>
+            </tr>
+
+            <tr>
+                <td>{{ form.art_graphique_materiaux_support_papier_verge }} <label for="{{ form.art_graphique_materiaux_support_papier_verge.id_for_label }}">{{ form.art_graphique_materiaux_support_papier_verge.label }}</label></td>
+                <td>
+                    <label for="{{ form.art_graphique_materiaux_support_nombre_intervalles_vergeures.id_for_label }}">{{ form.art_graphique_materiaux_support_nombre_intervalles_vergeures.label }}</label>&nbsp;
+                    {{ form.art_graphique_materiaux_support_nombre_intervalles_vergeures }}
+                </td>
+                <td>
+                    <label for="{{ form.art_graphique_materiaux_support_nombre_intervalles_pontuseaux.id_for_label }}">{{ form.art_graphique_materiaux_support_nombre_intervalles_pontuseaux.label }}</label>&nbsp;
+                    {{ form.art_graphique_materiaux_support_nombre_intervalles_pontuseaux }}
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<div id="technique1">
+
+    <h4>Technique</h4>
+
+    <div class="to-border-tr">
+
+        <table>
+            <caption>Technique du dessin</caption>            
+            <tr>
+                <td>{{ form.art_graphique_technique_dessin_stylet_pointe_metal }} <label for="{{ form.art_graphique_technique_dessin_stylet_pointe_metal.id_for_label }}">{{ form.art_graphique_technique_dessin_stylet_pointe_metal.label }}</label></td>
+                <td>{{ form.art_graphique_technique_dessin_pierre_noire }} <label for="{{ form.art_graphique_technique_dessin_pierre_noire.id_for_label }}">{{ form.art_graphique_technique_dessin_pierre_noire.label }}</label></td>
+                <td>{{ form.art_graphique_technique_dessin_fusain_crayon_comte }} <label for="{{ form.art_graphique_technique_dessin_fusain_crayon_comte.id_for_label }}">{{ form.art_graphique_technique_dessin_fusain_crayon_comte.label }}</label></td>
+                <td>{{ form.art_graphique_technique_dessin_graphite }} <label for="{{ form.art_graphique_technique_dessin_graphite.id_for_label }}">{{ form.art_graphique_technique_dessin_graphite.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_technique_dessin_sanguine }} <label for="{{ form.art_graphique_technique_dessin_sanguine.id_for_label }}">{{ form.art_graphique_technique_dessin_sanguine.label }}</label></td>
+                <td>{{ form.art_graphique_technique_dessin_craie_blanche }} <label for="{{ form.art_graphique_technique_dessin_craie_blanche.id_for_label }}">{{ form.art_graphique_technique_dessin_craie_blanche.label }}</label></td>
+                <td>{{ form.art_graphique_technique_dessin_crayon_de_couleurs }} <label for="{{ form.art_graphique_technique_dessin_crayon_de_couleurs.id_for_label }}">{{ form.art_graphique_technique_dessin_crayon_de_couleurs.label }}</label></td>
+                <td>{{ form.art_graphique_technique_dessin_rehauts_blancs }} <label for="{{ form.art_graphique_technique_dessin_rehauts_blancs.id_for_label }}">{{ form.art_graphique_technique_dessin_rehauts_blancs.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_technique_dessin_pastel }} <label for="{{ form.art_graphique_technique_dessin_pastel.id_for_label }}">{{ form.art_graphique_technique_dessin_pastel.label }}</label></td>
+                <td>{{ form.art_graphique_technique_dessin_encre_au_carbone }} <label for="{{ form.art_graphique_technique_dessin_encre_au_carbone.id_for_label }}">{{ form.art_graphique_technique_dessin_encre_au_carbone.label }}</label></td>
+                <td>{{ form.art_graphique_technique_dessin_encre_brune }} <label for="{{ form.art_graphique_technique_dessin_encre_brune.id_for_label }}">{{ form.art_graphique_technique_dessin_encre_brune.label }}</label></td>
+                <td>{{ form.art_graphique_technique_dessin_encre_metallogallique }} <label for="{{ form.art_graphique_technique_dessin_encre_metallogallique.id_for_label }}">{{ form.art_graphique_technique_dessin_encre_metallogallique.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_technique_dessin_peinture_huile_et_essence_terebenthine_sur_papier }} <label for="{{ form.art_graphique_technique_dessin_peinture_huile_et_essence_terebenthine_sur_papier.id_for_label }}">{{ form.art_graphique_technique_dessin_peinture_huile_et_essence_terebenthine_sur_papier.label }}</label></td>
+                <td>{{ form.art_graphique_technique_dessin_encre_de_couleur }} <label for="{{ form.art_graphique_technique_dessin_encre_de_couleur.id_for_label }}">{{ form.art_graphique_technique_dessin_encre_de_couleur.label }}</label></td>
+                <td>{{ form.art_graphique_technique_dessin_tempera }} <label for="{{ form.art_graphique_technique_dessin_tempera.id_for_label }}">{{ form.art_graphique_technique_dessin_tempera.label }}</label></td>
+                <td>{{ form.art_graphique_technique_dessin_gouache }} <label for="{{ form.art_graphique_technique_dessin_gouache.id_for_label }}">{{ form.art_graphique_technique_dessin_gouache.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_technique_dessin_aquarelle }} <label for="{{ form.art_graphique_technique_dessin_aquarelle.id_for_label }}">{{ form.art_graphique_technique_dessin_aquarelle.label }}</label></td>
+                <td colspan="3">{{ form.art_graphique_technique_dessin_autre }} <label for="{{ form.art_graphique_technique_dessin_autre.id_for_label }}">{{ form.art_graphique_technique_dessin_autre.label }}</label> {{ form.art_graphique_technique_dessin_autre_technique_dessin }}</td>                
+            </tr>
+
+        </table>
+
+        <table>
+
+            <caption>Technique de l'estampe</caption>
+
+            <tr>
+                <td>{{ form.art_graphique_technique_estampe_burin }} <label for="{{ form.art_graphique_technique_estampe_burin.id_for_label }}">{{ form.art_graphique_technique_estampe_burin.label }}</label></td>
+                <td>{{ form.art_graphique_technique_estampe_xylographie }} <label for="{{ form.art_graphique_technique_estampe_xylographie.id_for_label }}">{{ form.art_graphique_technique_estampe_xylographie.label }}</label></td>
+                <td>{{ form.art_graphique_technique_estampe_taille_epargne }} <label for="{{ form.art_graphique_technique_estampe_taille_epargne.id_for_label }}">{{ form.art_graphique_technique_estampe_taille_epargne.label }}</label></td>
+                <td>{{ form.art_graphique_technique_estampe_eau_forte }} <label for="{{ form.art_graphique_technique_estampe_eau_forte.id_for_label }}">{{ form.art_graphique_technique_estampe_eau_forte.label }}</label></td>
+            </tr>
+
+            <tr>
+                <td>{{ form.art_graphique_technique_estampe_aquatinte }} <label for="{{ form.art_graphique_technique_estampe_aquatinte.id_for_label }}">{{ form.art_graphique_technique_estampe_aquatinte.label }}</label></td>
+                <td>{{ form.art_graphique_technique_estampe_taille_douce }} <label for="{{ form.art_graphique_technique_estampe_taille_douce.id_for_label }}">{{ form.art_graphique_technique_estampe_taille_douce.label }}</label></td>
+                <td>{{ form.art_graphique_technique_estampe_lithographie }} <label for="{{ form.art_graphique_technique_estampe_lithographie.id_for_label }}">{{ form.art_graphique_technique_estampe_lithographie.label }}</label></td>
+                <td>{{ form.art_graphique_technique_estampe_pointe_seche }} <label for="{{ form.art_graphique_technique_estampe_pointe_seche.id_for_label }}">{{ form.art_graphique_technique_estampe_pointe_seche.label }}</label></td>
+            </tr>
+
+            <tr>
+                <td>{{ form.art_graphique_technique_estampe_maniere_noire }} <label for="{{ form.art_graphique_technique_estampe_maniere_noire.id_for_label }}">{{ form.art_graphique_technique_estampe_maniere_noire.label }}</label></td>
+                <td>{{ form.art_graphique_technique_estampe_maniere_au_crayon }} <label for="{{ form.art_graphique_technique_estampe_maniere_au_crayon.id_for_label }}">{{ form.art_graphique_technique_estampe_maniere_au_crayon.label }}</label></td>
+                <td>{{ form.art_graphique_technique_estampe_procede_au_pochoir }} <label for="{{ form.art_graphique_technique_estampe_procede_au_pochoir.id_for_label }}">{{ form.art_graphique_technique_estampe_procede_au_pochoir.label }}</label></td>
+                <td>{{ form.art_graphique_technique_estampe_serigraphie }} <label for="{{ form.art_graphique_technique_estampe_serigraphie.id_for_label }}">{{ form.art_graphique_technique_estampe_serigraphie.label }}</label></td>
+            </tr>
+
+            <tr>
+                <td colspan="3">{{ form.art_graphique_technique_estampe_techniques_combinees }} <label for="{{ form.art_graphique_technique_estampe_techniques_combinees.id_for_label }}">{{ form.art_graphique_technique_estampe_techniques_combinees.label }}</label> {{ form.art_graphique_technique_estampe_nom_techniques_combinees }}</td>                
+            </tr>
+
+        </table>
+
+        <table>
+
+            <caption>Autre technique graphique</caption>
+
+            <tr>
+                <td>{{ form.art_graphique_autre_technique_graphique_encre_a_imprimer_eau }} <label for="{{ form.art_graphique_autre_technique_graphique_encre_a_imprimer_eau.id_for_label }}">{{ form.art_graphique_autre_technique_graphique_encre_a_imprimer_eau.label }}</label></td>
+                <td>{{ form.art_graphique_autre_technique_graphique_encre_a_imprimer_huile }} <label for="{{ form.art_graphique_autre_technique_graphique_encre_a_imprimer_huile.id_for_label }}">{{ form.art_graphique_autre_technique_graphique_encre_a_imprimer_huile.label }}</label></td>
+            </tr>          
+
+        </table>
+
+        <table>
+            <caption>Technique de reproduction</caption>
+
+            <tr>
+                <td>{{ form.art_graphique_technique_reproduction_heliogravure }} <label for="{{ form.art_graphique_technique_reproduction_heliogravure.id_for_label }}">{{ form.art_graphique_technique_reproduction_heliogravure.label }}</label></td>
+                <td>{{ form.art_graphique_technique_reproduction_quadrichromie_offset }} <label for="{{ form.art_graphique_technique_reproduction_quadrichromie_offset.id_for_label }}">{{ form.art_graphique_technique_reproduction_quadrichromie_offset.label }}</label></td>                
+            </tr>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block option2 %}
+
+<div id="support">
+
+    <h4>Support</h4>
+
+    <div class="to-border-tr">
+        <table>            
+            <tr>
+                <td>{{ form.art_graphique_support_amincissement }} <label for="{{ form.art_graphique_support_amincissement.id_for_label }}">{{ form.art_graphique_support_amincissement.label }}</label></td>
+                <td>{{ form.art_graphique_support_fragilite }} <label for="{{ form.art_graphique_support_fragilite.id_for_label }}">{{ form.art_graphique_support_fragilite.label }}</label></td>
+                <td>{{ form.art_graphique_support_trou_de_punaises }} <label for="{{ form.art_graphique_support_trou_de_punaises.id_for_label }}">{{ form.art_graphique_support_trou_de_punaises.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_support_anciennes_restaurations }} <label for="{{ form.art_graphique_support_anciennes_restaurations.id_for_label }}">{{ form.art_graphique_support_anciennes_restaurations.label }}</label></td>
+                <td>{{ form.art_graphique_support_gondolement }} <label for="{{ form.art_graphique_support_gondolement.id_for_label }}">{{ form.art_graphique_support_gondolement.label }}</label></td>
+                <td>{{ form.art_graphique_support_trace_de_colle }} <label for="{{ form.art_graphique_support_trace_de_colle.id_for_label }}">{{ form.art_graphique_support_trace_de_colle.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_support_brulure }} <label for="{{ form.art_graphique_support_brulure.id_for_label }}">{{ form.art_graphique_support_brulure.label }}</label></td>
+                <td>{{ form.art_graphique_support_pliure }} <label for="{{ form.art_graphique_support_pliure.id_for_label }}">{{ form.art_graphique_support_pliure.label }}</label></td>
+                <td>{{ form.art_graphique_support_residus_adhesifs }} <label for="{{ form.art_graphique_support_residus_adhesifs.id_for_label }}">{{ form.art_graphique_support_residus_adhesifs.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_support_cassant }} <label for="{{ form.art_graphique_support_cassant.id_for_label }}">{{ form.art_graphique_support_cassant.label }}</label></td>
+                <td>{{ form.art_graphique_support_piqure }} <label for="{{ form.art_graphique_support_piqure.id_for_label }}">{{ form.art_graphique_support_piqure.label }}</label></td>
+                <td>{{ form.art_graphique_support_rouille }} <label for="{{ form.art_graphique_support_rouille.id_for_label }}">{{ form.art_graphique_support_rouille.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_support_coupure }} <label for="{{ form.art_graphique_support_coupure.id_for_label }}">{{ form.art_graphique_support_coupure.label }}</label></td>
+                <td>{{ form.art_graphique_support_papier_froisse }} <label for="{{ form.art_graphique_support_papier_froisse.id_for_label }}">{{ form.art_graphique_support_papier_froisse.label }}</label></td>
+                <td>{{ form.art_graphique_support_taches_claires }} <label for="{{ form.art_graphique_support_taches_claires.id_for_label }}">{{ form.art_graphique_support_taches_claires.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_support_dechirure }} <label for="{{ form.art_graphique_support_dechirure.id_for_label }}">{{ form.art_graphique_support_dechirure.label }}</label></td>
+                <td>{{ form.art_graphique_support_lacune }} <label for="{{ form.art_graphique_support_lacune.id_for_label }}">{{ form.art_graphique_support_lacune.label }}</label></td>
+                <td>{{ form.art_graphique_support_taches_diverses }} <label for="{{ form.art_graphique_support_taches_diverses.id_for_label }}">{{ form.art_graphique_support_taches_diverses.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_support_decoloration }} <label for="{{ form.art_graphique_support_decoloration.id_for_label }}">{{ form.art_graphique_support_decoloration.label }}</label></td>
+                <td>{{ form.art_graphique_support_rigidite }} <label for="{{ form.art_graphique_support_rigidite.id_for_label }}">{{ form.art_graphique_support_rigidite.label }}</label></td>
+                <td>{{ form.art_graphique_support_zone_brune }} <label for="{{ form.art_graphique_support_zone_brune.id_for_label }}">{{ form.art_graphique_support_zone_brune.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_support_deformations }} <label for="{{ form.art_graphique_support_deformations.id_for_label }}">{{ form.art_graphique_support_deformations.label }}</label></td>
+                <td>{{ form.art_graphique_support_peluches }} <label for="{{ form.art_graphique_support_peluches.id_for_label }}">{{ form.art_graphique_support_peluches.label }}</label></td>
+                <td>{{ form.art_graphique_support_poussieres }} <label for="{{ form.art_graphique_support_poussieres.id_for_label }}">{{ form.art_graphique_support_poussieres.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_support_depot_matiere_formant_tache }} <label for="{{ form.art_graphique_support_depot_matiere_formant_tache.id_for_label }}">{{ form.art_graphique_support_depot_matiere_formant_tache.label }}</label></td>
+                <td>{{ form.art_graphique_support_perforation }} <label for="{{ form.art_graphique_support_perforation.id_for_label }}">{{ form.art_graphique_support_perforation.label }}</label></td>
+                <td>{{ form.art_graphique_support_insectes }} <label for="{{ form.art_graphique_support_insectes.id_for_label }}">{{ form.art_graphique_support_insectes.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_support_dislocation_des_fibres_cellulose }} <label for="{{ form.art_graphique_support_dislocation_des_fibres_cellulose.id_for_label }}">{{ form.art_graphique_support_dislocation_des_fibres_cellulose.label }}</label></td>
+                <td>{{ form.art_graphique_support_jaunissement_generalise }} <label for="{{ form.art_graphique_support_jaunissement_generalise.id_for_label }}">{{ form.art_graphique_support_jaunissement_generalise.label }}</label></td>
+                <td>{{ form.art_graphique_support_trou_d_insectes }} <label for="{{ form.art_graphique_support_trou_d_insectes.id_for_label }}">{{ form.art_graphique_support_trou_d_insectes.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_support_doublage_defectueux }} <label for="{{ form.art_graphique_support_doublage_defectueux.id_for_label }}">{{ form.art_graphique_support_doublage_defectueux.label }}</label></td>
+                <td>{{ form.art_graphique_support_jaunissement_localise }} <label for="{{ form.art_graphique_support_jaunissement_localise.id_for_label }}">{{ form.art_graphique_support_jaunissement_localise.label }}</label></td>
+                <td>{{ form.art_graphique_support_micro_organismes }} <label for="{{ form.art_graphique_support_micro_organismes.id_for_label }}">{{ form.art_graphique_support_micro_organismes.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_support_epidermages }} <label for="{{ form.art_graphique_support_epidermages.id_for_label }}">{{ form.art_graphique_support_epidermages.label }}</label></td>
+                <td>{{ form.art_graphique_support_impregnation_produit_gras }} <label for="{{ form.art_graphique_support_impregnation_produit_gras.id_for_label }}">{{ form.art_graphique_support_impregnation_produit_gras.label }}</label></td>
+                <td>{{ form.art_graphique_support_moisissures_bacteries }} <label for="{{ form.art_graphique_support_moisissures_bacteries.id_for_label }}">{{ form.art_graphique_support_moisissures_bacteries.label }}</label></td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<div id="technique2">
+
+    <h4>Technique</h4>
+
+    <div class="to-border-tr">
+        <table>            
+            <tr>
+                <td>{{ form.art_graphique_technique_affaiblissement_des_traits }} <label for="{{ form.art_graphique_technique_affaiblissement_des_traits.id_for_label }}">{{ form.art_graphique_technique_affaiblissement_des_traits.label }}</label></td>
+                <td>{{ form.art_graphique_technique_craquelure }} <label for="{{ form.art_graphique_technique_craquelure.id_for_label }}">{{ form.art_graphique_technique_craquelure.label }}</label></td>
+                <td>{{ form.art_graphique_technique_fixatif_altere }} <label for="{{ form.art_graphique_technique_fixatif_altere.id_for_label }}">{{ form.art_graphique_technique_fixatif_altere.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_technique_anciennes_restaurations }} <label for="{{ form.art_graphique_technique_anciennes_restaurations.id_for_label }}">{{ form.art_graphique_technique_anciennes_restaurations.label }}</label></td>
+                <td>{{ form.art_graphique_technique_decapage }} <label for="{{ form.art_graphique_technique_decapage.id_for_label }}">{{ form.art_graphique_technique_decapage.label }}</label></td>
+                <td>{{ form.art_graphique_technique_jaunissement }} <label for="{{ form.art_graphique_technique_jaunissement.id_for_label }}">{{ form.art_graphique_technique_jaunissement.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_technique_corrosion_encre }} <label for="{{ form.art_graphique_technique_corrosion_encre.id_for_label }}">{{ form.art_graphique_technique_corrosion_encre.label }}</label></td>
+                <td>{{ form.art_graphique_technique_ecaillage_des_gouaches }} <label for="{{ form.art_graphique_technique_ecaillage_des_gouaches.id_for_label }}">{{ form.art_graphique_technique_ecaillage_des_gouaches.label }}</label></td>
+                <td>{{ form.art_graphique_technique_vernis_altere }} <label for="{{ form.art_graphique_technique_vernis_altere.id_for_label }}">{{ form.art_graphique_technique_vernis_altere.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_technique_couleurs_qui_ont_fuse }} <label for="{{ form.art_graphique_technique_couleurs_qui_ont_fuse.id_for_label }}">{{ form.art_graphique_technique_couleurs_qui_ont_fuse.label }}</label></td>
+                <td>{{ form.art_graphique_technique_manques }} <label for="{{ form.art_graphique_technique_manques.id_for_label }}">{{ form.art_graphique_technique_manques.label }}</label></td>
+                <td>{{ form.art_graphique_technique_traits_degrade }} <label for="{{ form.art_graphique_technique_traits_degrade.id_for_label }}">{{ form.art_graphique_technique_traits_degrade.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_technique_couleurs_eclaircies }} <label for="{{ form.art_graphique_technique_couleurs_eclaircies.id_for_label }}">{{ form.art_graphique_technique_couleurs_eclaircies.label }}</label></td>
+                <td>{{ form.art_graphique_technique_pulverulence }} <label for="{{ form.art_graphique_technique_pulverulence.id_for_label }}">{{ form.art_graphique_technique_pulverulence.label }}</label></td>
+                <td>{{ form.art_graphique_technique_teintes_palies }} <label for="{{ form.art_graphique_technique_teintes_palies.id_for_label }}">{{ form.art_graphique_technique_teintes_palies.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_technique_teintes_transformees }} <label for="{{ form.art_graphique_technique_teintes_transformees.id_for_label }}">{{ form.art_graphique_technique_teintes_transformees.label }}</label></td>                
+            </tr>            
+
+        </table>
+    </div>
+</div>
+
+<div id="montage">
+
+    <h4>Montage</h4>
+            
+    <div class="to-border-tr">
+        <table>            
+            <tr>
+                <td>{{ form.art_graphique_montage_carton_au_verso }} <label for="{{ form.art_graphique_montage_carton_au_verso.id_for_label }}">{{ form.art_graphique_montage_carton_au_verso.label }}</label></td>
+                <td>{{ form.art_graphique_montage_colle_en_plein }} <label for="{{ form.art_graphique_montage_colle_en_plein.id_for_label }}">{{ form.art_graphique_montage_colle_en_plein.label }}</label></td>
+                <td>{{ form.art_graphique_montage_anciennes_restaurations }} <label for="{{ form.art_graphique_montage_anciennes_restaurations.id_for_label }}">{{ form.art_graphique_montage_anciennes_restaurations.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_montage_fenetre_au_recto }} <label for="{{ form.art_graphique_montage_fenetre_au_recto.id_for_label }}">{{ form.art_graphique_montage_fenetre_au_recto.label }}</label></td>
+                <td>{{ form.art_graphique_montage_colle_par_les_bords }} <label for="{{ form.art_graphique_montage_colle_par_les_bords.id_for_label }}">{{ form.art_graphique_montage_colle_par_les_bords.label }}</label></td>
+                <td>{{ form.art_graphique_montage_defaut_adherence }} <label for="{{ form.art_graphique_montage_defaut_adherence.id_for_label }}">{{ form.art_graphique_montage_defaut_adherence.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.art_graphique_montage_passepartout }} <label for="{{ form.art_graphique_montage_passepartout.id_for_label }}">{{ form.art_graphique_montage_passepartout.label }}</label></td>
+                <td>{{ form.art_graphique_montage_fausse_marge }} <label for="{{ form.art_graphique_montage_fausse_marge.id_for_label }}">{{ form.art_graphique_montage_fausse_marge.label }}</label></td>
+                <td>{{ form.art_graphique_montage_charniere_en_japon }} <label for="{{ form.art_graphique_montage_charniere_en_japon.id_for_label }}">{{ form.art_graphique_montage_charniere_en_japon.label }}</label></td>
+            </tr>                    
+
+        </table>
+    </div>
+</div>
+
+<div>
+    <table id="tab-photos-significatives-support">
+
+        <caption>Photos significatives</caption>
+
+        <input type="button" id="btn-photos-significatives-support" value="Ajouter photo">
+
+        <tr>
+            <td>Photo de détail</td>
+            <td>Emplacement</td>
+        </tr>
+                
+    </table>
+
+    <input value="0" name="nombre-photos-significatives-support" id="nombre-photos-significatives-support" hidden>
+</div>
+        
+<!-- Place to put the pics of alterations -->
+
+{% endblock%}

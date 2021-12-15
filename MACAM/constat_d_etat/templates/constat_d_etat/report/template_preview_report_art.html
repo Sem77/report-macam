@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        {% load static %}
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'constat_d_etat/css/template_style2.css' %}" />
+    </head>
+
+    <body>
+
+        {% block static_menu %}{% endblock %}
+
+        
+        <div class="principal">
+                        
+            <form>
+                <div id="photos">
+                    <a href="{% url 'constat:index' %}"><img src="{% static 'constat_d_etat/img/logo1.png' %}"></a>
+
+                    <h2>Constat d'état : {% block artwork_type %}{% endblock %}</h2>
+
+                    <table id="id-pic-table">
+                        <tr>
+                            <td colspan="2">Photos d' identification</td>
+                        </tr>
+                        <tr>
+                            <td>Face</td>
+                            <td>Revers</td>
+                        </tr>
+
+                        {% block art_picture %}{% endblock %}
+                        
+                    </table>
+                </div>                
+
+                {% block art_info %}{% endblock %}                
+                
+                <div id="cadre">
+                    <h4>Cadre</h4>
+                    {% if report.absence_cadre == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %}<label>{{ form.absence_de_cadre.label }}</label>                    
+
+                    <div class="to-border-tr">
+                        <table>
+
+                            <tr>
+                                <td colspan="3">
+                                    {% if report.cadre.etat_satisfaisant == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_caracteristiques_etat_satisfaisant.label }}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {% if report.cadre.caracteristiques_cadre.ancien == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_caracteristiques_ancien.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.caracteristiques_cadre.moderne == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_caracteristiques_moderne.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.caracteristiques_cadre.cadre_d_origine == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_caracteristiques_cadre_d_origine.label }}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {% if report.cadre.caracteristiques_cadre.bois_dore == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %}<label>{{ form.cadre_caracteristiques_bois_dore.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.caracteristiques_cadre.platre_dore == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_caracteristiques_platre_dore.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.caracteristiques_cadre.bois_peint == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_caracteristiques_bois_peint.label }}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {% if report.cadre.caracteristiques_cadre.feuillure_garnie_de_feutrine == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_caracteristiques_feuillure_garnie_de_feutrine.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.caracteristiques_cadre.verre_antireflet == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_caracteristiques_verre_antireflet.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.caracteristiques_cadre.tampons_de_calage == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_caracteristiques_tampons_de_calage_cadre_ou_panneau.label }}</label>
+                                </td>
+                            </tr>
+                        </table>
+                    
+                        <table>
+
+                            <caption>Altérations</caption>
+
+                            <tr>
+                                <td>
+                                    {% if report.cadre.alteration.disjoint_aux_angles == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_alterations_disjoint_aux_angles.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.alteration.fissures_aux_angles == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_alterations_fissure_aux_angles.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.alteration.fissures_sur_les_bords == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_alterations_fissure_sur_les_bords.label }}</label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    {% if report.cadre.alteration.cadre_voile == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_alterations_cadre_voile.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.alteration.encrassement == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_alterations_encrassement.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.alteration.decor_fragilise == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_alterations_decor_fragilise.label }}</label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    {% if report.cadre.alteration.lacunes_de_bois == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_alterations_lacunes_de_bois.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.alteration.lacunes_de_platre == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_alterations_lacunes_de_platre.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.alteration.platre_pulverilent == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_alterations_platre_pulverilent.label }}</label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    {% if report.cadre.alteration.peinture_ecaillee == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_alterations_peinture_ecaillee.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.alteration.trous_d_envol == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_alterations_trous_d_envol.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.alteration.galeries_d_insectes == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_alterations_galerie_d_insectes.label }}</label>
+                                </td>
+                            </tr>
+
+                        </table>
+
+                        <table>
+
+                            <caption>Montage</caption>
+
+                            <tr>
+                                <td>
+                                    {% if report.cadre.montage.trous_de_pitons == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_montage_trous_de_pitons.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.montage.trous_de_cartels == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_montage_trous_de_cartels.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.montage.cartel == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_montage_cartel.label }}</label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    {% if report.cadre.montage.etiquettes == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_montage_ettiquettes.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.montage.encadrement_flottant == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_montage_encadrement_flottant.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.montage.fixation_au_cadre == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_montage_fixation_au_cadre.label }}</label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    {% if report.cadre.montage.ressorts == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_montage_ressorts.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.montage.clous == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_montage_clous.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.montage.pattes == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_montage_pattes.label }}</label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    {% if report.cadre.montage.poignees_sur_les_montants == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_montage_poignee_sur_les_montants.label }}</label>
+                                </td>
+                                <td colspan="2">
+                                    <label>{{ form.cadre_montage_etat_poignee_sur_les_montants.label }} : </label> {{ report.cadre.montage.etat_poignees_sur_les_montants }}<br>
+                                    <label>{{ form.cadre_montage_nombre_poignee_sur_les_montants.label }} : </label> {{ report.cadre.montage.nombre_poignees_sur_les_montants }}
+                                </td>
+                            </tr>
+
+                        </table>
+
+                        <table>
+
+                            <caption>Dorure</caption>
+
+                            <tr>
+                                <td>
+                                    {% if report.cadre.dorure.bon_etat == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_dorure_bon_etat.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.dorure.bronzine == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_dorure_bronzine.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.dorure.dorure_mixte == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_dorure_dorure_mixte.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.dorure.piqures == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_dorure_piqures.label }}</label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    {% if report.cadre.dorure.lacunes == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_dorure_lacunes.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.dorure.usures == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_dorure_usures.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.dorure.maquillage == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_dorure_maquillage.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.dorure.taches == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_dorure_taches.label }}</label>
+                                </td>
+                            </tr>                    
+
+                        </table>
+
+                        <table>
+
+                            <caption>Système d'accrochage</caption>
+
+                            <tr>
+                                <td>
+                                    {% if report.cadre.systeme_d_accrochage.attelles == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_systeme_accrochage_attelles.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.systeme_d_accrochage.pitons == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_systeme_accrochage_pitons.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.cadre.systeme_d_accrochage.systeme_antivol == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_systeme_accrochage_systeme_antivol.label }}</label>
+                                </td>
+                                <td><label>{{ form.cadre_systeme_accrochage_type_systeme_antivol.label }}</label>{{ report.cadre.systeme_d_accrochage.type_systeme_antivol }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    {% if report.cadre.systeme_d_accrochage.pretee == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_systeme_accrochage_pretee.label }}</label>
+                                </td>
+                                <td><label>{{ form.cadre_systeme_accrochage_nombre_pretee.label }}</label>{{ report.cadre.systeme_d_accrochage.nombre_pretee }}</td>
+                                <td colspan="2">
+                                    {% if report.cadre.systeme_d_accrochage.retire == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.cadre_systeme_accrochage_retirees.label }}</label>
+                                </td>
+                            </tr>                    
+
+                        </table>
+                    </div>
+                </div>
+
+                <div>
+                    <table id="tab-photos-significatives-cadre">
+
+                        <caption>Photos significatives</caption>
+
+                        <tr>
+                            <td>Photo de détail</td>
+                            <td>Emplacement</td>
+                        </tr>
+
+                        {% for pic in pht_signs_cadre %}
+                        <tr>
+                            <td>
+                                {% if pic.photo.url != '' %}
+                                <img src="{{ pic.photo.url }}" width="200">
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if pic.photo_avec_emplacement.url != '' %}
+                                <img src="{{ pic.photo_avec_emplacement.url }}" width="200">
+                                {% endif %}
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Nature de l'altération: {{ pic.nature_alteration }}</td>
+                            <td>
+                                {% if pic.face %}
+                                <input type="radio" checked> <label>Face</label><br>
+                                <input type="radio" > <label>Revers</label><br>
+                                {% else %}
+                                <input type="radio" > <label>Face</label><br>
+                                <input type="radio" checked> <label>Revers</label><br>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        
+                    </table>
+
+                </div>   
+
+                <!-- Others fields according to the type of artwork -->
+                {% block option1 %}{% endblock %}
+                {% block option2 %}{% endblock %}
+                {% block option3 %}{% endblock %}
+
+
+                <div id="emballage">
+                    <h4>Emballage</h4>
+
+                    <div class="to-border-tr">
+                        <table>
+
+                            <caption>Protection simple</caption>
+
+                            <tr>
+                                <td>
+                                    {% if report.emballage.protection_simple.tamponnage == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_protection_simple_tamponnage.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.protection_simple.elastoc == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_protection_simple_elastoc.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.protection_simple.fibrenap == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_protection_simple_fibrenap.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.protection_simple.papier_kraft == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_protection_simple_papier_kraft.label }}</label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    {% if report.emballage.protection_simple.papier_de_soie == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_protection_simple_papier_de_soie.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.protection_simple.film_polyester == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_protection_simple_film_polyester.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.protection_simple.papier_cristal == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_protection_simple_papier_cristal.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.protection_simple.intisse == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_protection_simple_intisse.label }}</label>
+                                </td>
+                            </tr>   
+                            
+                            <tr>
+                                <td>
+                                    {% if report.emballage.protection_simple.carton_cannele == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_protection_simple_carton_cannele.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.protection_simple.plaque_de_polypropene == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_protection_simple_plaque_de_polypropylene.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.protection_simple.bullkraft == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_protection_simple_bullkraft.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.protection_simple.bullpack == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_protection_simple_bullpack.label }}</label>
+                                </td>
+                            </tr>   
+
+                        </table>
+
+                        <table>
+
+                            <caption>Caisse</caption>
+
+                            <tr>
+                                <td>
+                                    {% if report.emballage.caisse.simple == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_caisse_simple.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.caisse.double == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_caisse_double.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.caisse.isotherme == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_caisse_isotherme.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.caisse.climatique == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_caisse_climatique.label }}</label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    {% if report.emballage.caisse.film_pare_vapeur == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_caisse_film_par_vapeur.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.caisse.mousses == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_caisse_mousses.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.caisse.polystylene == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_caisse_polystylene.label }}</label>
+                                </td>
+                            </tr>   
+                            
+                            <tr>
+                                <td>
+                                    {% if report.emballage.caisse.tableau_face_dessus == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_caisse_tableau_face_dessus.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.caisse.tableau_face_dessous == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_caisse_tableau_face_dessous.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.caisse.indicateur_de_renversement == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_caisse_indicateur_de_renversement.label }}</label>
+                                </td>
+                            </tr>   
+
+                            <tr>
+                                <td>
+                                    {% if report.emballage.caisse.gel_de_silice == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_caisse_gel_de_silice.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.caisse.thermohygrometre == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_caisse_thermohygrometre.label }}</label>
+                                </td>
+                                <td>
+                                    {% if report.emballage.caisse.indicateur_de_choc == True %}<input type="checkbox" checked>
+                                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.emballage_caisse_indicateur_de_choc.label }}</label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <table class="table-without-border">
+                        <tr class="table-without-border">
+                            <td class="table-without-border"><label></label>{{ form.constat_numero_caisse.label }}</label>{{ report.num_caisse }}</td>
+                            <td class="table-without-border"><label>{{ form.constat_nom_transporteur.label }}</label>{{ report.nom_transporteur }}</td>
+                        </tr>
+                    </table>
+
+                    {% if report.autres_ouvres_dans_la_meme_caisse == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.constat_autres_oeuvres_meme_caisse.label }}</label><br>
+
+                    <label>{{ form.constat_remarques_notes.label }}</label><br>
+                    <p>{{ report.remarque }}</p><br>
+
+                    {% if report.photos_numeriques_realisees_au_depart == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.constat_photos_numeriques_realisees_au_depart.label }}</label><br>
+                    
+                    {% if report.original_constat_laisse_a_l_emprunteur == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.constat_original_constat_laisse_emprunteur.label }}</label><br>
+                    
+                    {% if report.copie_constat_laisse_a_l_emprunteur == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.constat_copie_constat_laisse_emprunteur.label }}</label><br>
+
+                    <table>
+
+                        <tr>
+                            <td>Constat établi le : </td>
+                            <td>{{ report.date }}</td>
+                        </tr>
+
+                        <tr>
+                            <td><label>{{ form.constat_auteur_constat.label }}</label></td>
+                            <td>{{ report.auteur }}</td>
+                            <td> </td>
+                            <td> </td>
+                            <td>Signature</td>
+                            <td>
+                                {% if report.signature_auteur %}
+                                <img src="{{ report.signature_auteur.url }}" width="100" height="50"></td>
+                                {% else %}
+                                Aucune signature n'a été ajoutée
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><label>{{ form.constat_nom_convoyeur.label }}</label></td>
+                            <td>{{ report.nom_convoyeur }}</td>
+                            <td> </td>
+                            <td> </td>
+                            <td>Signature du convoyeur</td>
+                            <td> </td>
+                        </tr>
+
+                    </table>
+                </div>
+                
+            </form>
+
+        </div> 
+            
+
+    </body>
+
+</html>

@@ -1,0 +1,14 @@
+{% extends 'constat_d_etat/list_art/template_list_arts.html' %}
+
+{% block next_button %}
+
+    <div class="pagination-button">    
+    {% if arts.has_previous %}
+        <a href="{% url 'constat:list_arts' art_type='art_graphique' page_number=arts.previous_page_number %}"><button class="btn">Précédent</button></a>
+    {% endif %}
+    {% if arts.has_next %}
+        <a href="{% url 'constat:list_arts' art_type='art_graphique' page_number=arts.next_page_number %}"><button class="btn">Suivant</button></a>
+    {% endif %}    
+    </div>
+
+{% endblock %}

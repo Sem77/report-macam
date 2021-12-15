@@ -1,0 +1,19 @@
+body {
+	background-image: url('../img/login_bg.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+@media screen and (max-width: 1024px) {
+	body {
+		margin: 0px;
+	}
+	.principal {
+		width: 100%;
+		height: 100%;
+	}
+
+	#menu {
+		display: none;
+	}
+}

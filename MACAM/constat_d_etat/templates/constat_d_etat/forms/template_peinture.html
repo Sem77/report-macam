@@ -1,0 +1,154 @@
+{% extends 'constat_d_etat/forms/template_art.html' %}
+
+{% block option1 %}
+
+<div id="couche_picturale">
+
+    <h4>Couche picturale</h4>
+
+    <div class="to-border-tr">
+        <table>
+
+            <caption>Altérations optiques</caption>
+            
+            <tr>
+                <td>{{ form.peinture_alterations_optiques_usures }} <label for="{{ form.peinture_alterations_optiques_usures.id_for_label }}">{{ form.peinture_alterations_optiques_usures.label }}</label></td>
+                <td>{{ form.peinture_alterations_optiques_griffures }} <label for="{{ form.peinture_alterations_optiques_griffures.id_for_label }}">{{ form.peinture_alterations_optiques_griffures.label }}</label></td>
+                <td>{{ form.peinture_alterations_optiques_impression_texture }} <label for="{{ form.peinture_alterations_optiques_impression_texture.id_for_label }}">{{ form.peinture_alterations_optiques_impression_texture.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.peinture_alterations_optiques_marques_chassis }} <label for="{{ form.peinture_alterations_optiques_marques_chassis.id_for_label }}">{{ form.peinture_alterations_optiques_marques_chassis.label }}</label></td>
+                <td>{{ form.peinture_alterations_optiques_trous_envol }} <label for="{{ form.peinture_alterations_optiques_trous_envol.id_for_label }}">{{ form.peinture_alterations_optiques_trous_envol.label }}</label></td>
+                <td>{{ form.peinture_alterations_optiques_dejections_insectes }} <label for="{{ form.peinture_alterations_optiques_dejections_insectes.id_for_label }}">{{ form.peinture_alterations_optiques_dejections_insectes.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.peinture_alterations_optiques_transparences_accrues }} <label for="{{ form.peinture_alterations_optiques_transparences_accrues.id_for_label }}">{{ form.peinture_alterations_optiques_transparences_accrues.label }}</label></td>
+                <td>{{ form.peinture_alterations_optiques_repeints_alteres }} <label for="{{ form.peinture_alterations_optiques_repeints_alteres.id_for_label }}">{{ form.peinture_alterations_optiques_repeints_alteres.label }}</label></td>
+                <td>{{ form.peinture_alterations_optiques_matics_debordants }} <label for="{{ form.peinture_alterations_optiques_matics_debordants.id_for_label }}">{{ form.peinture_alterations_optiques_matics_debordants.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.peinture_alterations_optiques_traces_de_dorure }} <label for="{{ form.peinture_alterations_optiques_traces_de_dorure.id_for_label }}">{{ form.peinture_alterations_optiques_traces_de_dorure.label }}</label></td>
+                <td>{{ form.peinture_alterations_optiques_projections }} <label for="{{ form.peinture_alterations_optiques_projections.id_for_label }}">{{ form.peinture_alterations_optiques_projections.label }}</label></td>
+                <td>{{ form.peinture_alterations_optiques_ecrasement_de_matiere }} <label for="{{ form.peinture_alterations_optiques_ecrasement_de_matiere.id_for_label }}">{{ form.peinture_alterations_optiques_ecrasement_de_matiere.label }}</label></td>
+            </tr>
+
+        </table>
+
+        <table>
+            <p class="sub-caption">Vernis</p>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td colspan="2">{{ form.peinture_vernis_homogeneite_satisfaisante }} <label for="{{ form.peinture_vernis_homogeneite_satisfaisante.id_for_label }}">{{ form.peinture_vernis_homogeneite_satisfaisante.label }}</label></td>
+            </tr>
+            <tr>
+                <td>{{ form.peinture_vernis_jaunissement }} <label for="{{ form.peinture_vernis_jaunissement.id_for_label }}">{{ form.peinture_vernis_jaunissement.label }}</label></td>
+                <td>{{ form.peinture_vernis_encrassement }} <label for="{{ form.peinture_vernis_encrassement.id_for_label }}">{{ form.peinture_vernis_encrassement.label }}</label></td>
+                <td>{{ form.peinture_vernis_chancis }} <label for="{{ form.peinture_vernis_chancis.id_for_label }}">{{ form.peinture_vernis_chancis.label }}</label></td>
+                <td>{{ form.peinture_vernis_coulures }} <label for="{{ form.peinture_vernis_coulures.id_for_label }}">{{ form.peinture_vernis_coulures.label }}</label></td>
+            </tr>
+
+            <tr>
+                <td>{{ form.peinture_vernis_inegalite_de_surface }} <label for="{{ form.peinture_vernis_inegalite_de_surface.id_for_label }}">{{ form.peinture_vernis_inegalite_de_surface.label }}</label></td>
+                <td>{{ form.peinture_vernis_lacunes }} <label for="{{ form.peinture_vernis_lacunes.id_for_label }}">{{ form.peinture_vernis_lacunes.label }}</label></td>
+                <td>{{ form.peinture_vernis_soulevements }} <label for="{{ form.peinture_vernis_soulevements.id_for_label }}">{{ form.peinture_vernis_soulevements.label }}</label></td>
+                <td>{{ form.peinture_vernis_chevauchement_ecaillement }} <label for="{{ form.peinture_vernis_chevauchement_ecaillement.id_for_label }}">{{ form.peinture_vernis_chevauchement_ecaillement.label }}</label></td>
+            </tr>
+        </table>
+
+        <table>
+
+            <caption>Adhésion</caption>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td colspan="2">{{ form.peinture_adhesion_satisfaisante }} <label for="{{ form.peinture_adhesion_satisfaisante.id_for_label }}">{{ form.peinture_adhesion_satisfaisante.label }}</label></td>
+            </tr>
+
+            <tr>
+                <td>{{ form.peinture_adhesion_deplacage }} <label for="{{ form.peinture_adhesion_deplacage.id_for_label }}">{{ form.peinture_adhesion_deplacage.label }}</label></td>
+                <td>{{ form.peinture_adhesion_epidermage }} <label for="{{ form.peinture_adhesion_epidermage.id_for_label }}">{{ form.peinture_adhesion_epidermage.label }}</label></td>
+                <td>{{ form.peinture_adhesion_cloque }} <label for="{{ form.peinture_adhesion_cloque.id_for_label }}">{{ form.peinture_adhesion_cloque.label }}</label></td>
+                <td>{{ form.peinture_adhesion_deplacement_ecailles }} <label for="{{ form.peinture_adhesion_deplacement_ecailles.id_for_label }}">{{ form.peinture_adhesion_deplacement_ecailles.label }}</label></td>
+            </tr>
+
+            <tr>
+                <td>{{ form.peinture_adhesion_zones_pulverilentes }} <label for="{{ form.peinture_adhesion_zones_pulverilentes.id_for_label }}">{{ form.peinture_adhesion_zones_pulverilentes.label }}</label></td>
+                <td>{{ form.peinture_adhesion_transposition }} <label for="{{ form.peinture_adhesion_transposition.id_for_label }}">{{ form.peinture_adhesion_transposition.label }}</label></td>
+                <td>{{ form.peinture_adhesion_brulures }} <label for="{{ form.peinture_adhesion_brulures.id_for_label }}">{{ form.peinture_adhesion_brulures.label }}</label></td>
+                <td>{{ form.peinture_adhesion_lacunes }} <label for="{{ form.peinture_adhesion_lacunes.id_for_label }}">{{ form.peinture_adhesion_lacunes.label }}</label></td>
+            </tr>
+
+            <tr>
+                <td>{{ form.peinture_adhesion_soulevement }} <label for="{{ form.peinture_adhesion_soulevement.id_for_label }}">{{ form.peinture_adhesion_soulevement.label }}</label></td>
+                <td>{{ form.peinture_adhesion_chevauchement_ecailles }} <label for="{{ form.peinture_adhesion_chevauchement_ecailles.id_for_label }}">{{ form.peinture_adhesion_chevauchement_ecailles.label }}</label></td>
+            </tr>
+
+        </table>
+
+        <table>
+
+            <caption>Cohésion</caption>
+
+            <p class="sub-caption">Craquelures prématurées: </p>
+
+            <tr>
+                <td>{{ form.peinture_craquelure_prematuree_rides }} <label for="{{ form.peinture_craquelure_prematuree_rides.id_for_label }}">{{ form.peinture_craquelure_prematuree_rides.label }}</label></td>
+                <td>{{ form.peinture_craquelure_prematuree_gercures }} <label for="{{ form.peinture_craquelure_prematuree_gercures.id_for_label }}">{{ form.peinture_craquelure_prematuree_gercures.label }}</label></td>
+                <td>{{ form.peinture_craquelure_prematuree_crevasses }} <label for="{{ form.peinture_craquelure_prematuree_crevasses.id_for_label }}">{{ form.peinture_craquelure_prematuree_crevasses.label }}</label></td>
+                <td>{{ form.peinture_craquelure_prematuree_craquelures_fermees }} <label for="{{ form.peinture_craquelure_prematuree_craquelures_fermees.id_for_label }}">{{ form.peinture_craquelure_prematuree_craquelures_fermees.label }}</label></td>
+            </tr>                           
+
+        </table>
+
+        <table>
+
+            <p class="sub-caption">Craquelures d'âge :</p>
+
+            <tr>
+                <td colspan="2">{{ form.peinture_craquelure_age_reseau_generalise_fin }} <label for="{{ form.peinture_craquelure_age_reseau_generalise_fin.id_for_label }}">{{ form.peinture_craquelure_age_reseau_generalise_fin.label }}</label></td>
+                <td colspan="2">{{ form.peinture_craquelure_age_reseau_generalise_prononce }} <label for="{{ form.peinture_craquelure_age_reseau_generalise_prononce.id_for_label }}">{{ form.peinture_craquelure_age_reseau_generalise_prononce.label }}</label></td>
+            </tr>
+
+            <tr>
+                <td>{{ form.peinture_craquelure_age_limites_a_une_zone }} <label for="{{ form.peinture_craquelure_age_limites_a_une_zone.id_for_label }}">{{ form.peinture_craquelure_age_limites_a_une_zone.label }}</label></td>
+                <td>{{ form.peinture_craquelure_age_circulaire }} <label for="{{ form.peinture_craquelure_age_circulaire.id_for_label }}">{{ form.peinture_craquelure_age_circulaire.label }}</label></td>
+                <td>{{ form.peinture_craquelure_age_diagonales }} <label for="{{ form.peinture_craquelure_age_diagonales.id_for_label }}">{{ form.peinture_craquelure_age_diagonales.label }}</label></td>
+                <td>{{ form.peinture_craquelure_age_horizontales_verticales }} <label for="{{ form.peinture_craquelure_age_horizontales_verticales.id_for_label }}">{{ form.peinture_craquelure_age_horizontales_verticales.label }}</label></td>
+            </tr>
+
+            <tr>
+                <td>{{ form.peinture_craquelure_age_en_echelle }} <label for="{{ form.peinture_craquelure_age_en_echelle.id_for_label }}">{{ form.peinture_craquelure_age_en_echelle.label }}</label></td>
+                <td>{{ form.peinture_craquelure_age_en_escargot }} <label for="{{ form.peinture_craquelure_age_en_escargot.id_for_label }}">{{ form.peinture_craquelure_age_en_escargot.label }}</label></td>
+                <td>{{ form.peinture_craquelure_age_faiencage }} <label for="{{ form.peinture_craquelure_age_faiencage.id_for_label }}">{{ form.peinture_craquelure_age_faiencage.label }}</label></td>
+                <td>{{ form.peinture_craquelure_age_pavimenteuses }} <label for="{{ form.peinture_craquelure_age_pavimenteuses.id_for_label }}">{{ form.peinture_craquelure_age_pavimenteuses.label }}</label></td>
+            </tr>                    
+
+        </table>
+    </div>
+
+    <div>
+        <table id="tab-photos-significatives-couche-picturale">
+
+            <caption>Photos significatives</caption>
+
+            <input type="button" id="btn-photos-significatives-couche-picturale" value="Ajouter photo">
+
+            <tr>
+                <td>Photo de détail</td>
+                <td>Emplacement</td>
+            </tr>
+            
+        </table>
+
+        <input value="0" name="nombre-photos-significatives-couche-picturale" id="nombre-photos-significatives-couche-picturale" hidden>
+    </div>
+</div>
+
+<!-- Place to put the pics of alterations -->
+{% block alteration_pic_adhesion %}{% endblock %}
+
+{% endblock%}

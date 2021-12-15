@@ -1,0 +1,799 @@
+{% extends 'constat_d_etat/report/template_preview_report_art.html' %}
+
+{% load static %}
+
+{% block title %}
+    Constat art graphique
+{% endblock %}
+
+{% block static_menu %}
+    <nav id="menu">
+        <ul>
+            <li><a href="#photos">Photos</a></li>
+            <li><a href="#informations">Informations</a></li>
+            <li><a href="#cadre">Cadre</a></li>
+            <li><a href="#materiaux_support">Matériaux et support</a></li>
+            <li><a href="#technique1">Technique</a></li>
+            <li><a href="#support">Support</a></li>
+            <li><a href="#technique2">Technique</a></li>
+            <li><a href="#montage">Montage</a></li>
+            <li><a href="#emballage">Emballage</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+
+
+{% block artwork_type %}
+    art graphique
+{% endblock %}
+
+{% block art_picture %}
+    <tr class="pic-row">
+        {% if report.art_graphique.photo_face.url != "" %}
+            <td><a href="{{ report.art_graphique.photo_face.url }}"><img src="{{ report.art_graphique.photo_face.url }}" width="300" height="300"></a></td>
+        {% else %}
+            <td><img src="{% static 'constat_d_etat/img/image-missing.jpg' %}" width="300" height="300"></td>
+        {% endif %}
+
+        {% if report.art_graphique.photo_revers.url != "" %}
+            <td><a href="{{ report.art_graphique.photo_revers.url }}"><img src="{{ report.art_graphique.photo_revers.url }}" width="300" height="300"></a></td>
+        {% else %}
+            <td><img src="{% static 'constat_d_etat/img/image-missing.jpg' %}" width="300" height="300"></td>
+        {% endif %}
+    </tr>
+{% endblock %}
+
+{% block art_info %}
+    <div class="to-border">
+        <div id="informations">
+            <table>
+                <tr>
+                    <td><label class="label-bold">{{ form.lieu_de_conservation.label }}</label></td>
+                    <td>{{ report.lieu_conservation }}</td>                                
+                </tr>                            
+
+                <tr>
+                    <td><label class="label-bold">{{ form.ville.label }}</label></td>
+                    <td>{{ report.ville }}</td>
+
+                    <td><label class="label-bold">Institution : </label></td>
+                    <td>{{ report.art_graphique.institution }}</td>
+                </tr>
+
+                <tr>
+                    <td><label class="label-bold">Numéro d'inventaire : <label></td>
+                    <td>{{ report.art_graphique.numero_inventaire }}</td>
+
+                    <td><label class="label-bold">{{ form.emplacement_oeuvre.label }} : </label></td>
+                    <td>{{ report.emplacement }}</td>
+                </tr>
+
+                <tr>
+                    <td><label class="label-bold">Titre : </label></td>
+                    <td>{{ report.art_graphique.titre }}</td>
+                </tr>
+
+                <tr>
+                    <td><label class="label-bold">Auteur : </label></td>
+                    <td>{{ report.art_graphique.auteur }}</td>
+                </tr>
+
+                <tr>
+                    <table id="dim-table">
+                        <tr>
+                            <td><label class="label-bold">Dimensions : </label></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td><label>Hauteur</label></td>
+                            <td><label>Largeur</label></td>
+                            <td><label>Epaisseur</label></td>
+                        </tr>
+
+                        <tr>
+                            <td><label>Avec cadre : </label></td>
+                            <td>{{ report.art_graphique.hauteur_avec_cadre }}<label>cm</label></td>
+                            <td>{{ report.art_graphique.largeur_avec_cadre }}<label>cm</label></td>
+                            <td>{{ report.art_graphique.epaisseur_avec_cadre }}<label>cm</label></td>
+                        </tr>
+
+                        <tr>
+                        <td><label>Sans cadre : </label></td>
+                            <td>{{ report.art_graphique.hauteur_sans_cadre }}<label>cm</label></td>
+                            <td>{{ report.art_graphique.largeur_sans_cadre }}<label>cm</label></td>
+                            <td>{{ report.art_graphique.epaisseur_sans_cadre }}<label>cm</label></td>
+                        </tr>
+
+                        <tr><td><label class="label-bold">Format : </label>{{ report.art_graphique.format_oeuvre }}</td></tr>
+                    
+                    </table>
+                </tr>
+            </table>
+            
+        </div>
+    </div>
+{% endblock %}
+
+{% block option3 %}
+    
+{% endblock %}
+
+
+{% block option1 %}
+
+<div id="materiaux_support">
+
+    <h4>Matériaux et support</h4>
+
+    {% if report.materiaux_support.revers_inaccessible == True %}<input type="checkbox" checked>
+    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_revers_inacessible.label }}</label>
+
+    <div class="to-border-tr">
+        <table>            
+            <tr>
+                <td>
+                    {% if report.materiaux_support.carton == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_carton.label }}</label>
+                </td>
+                <td>
+                    {% if report.materiaux_support.velin == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_velin.label }}</label>
+                </td>
+                <td>
+                    {% if report.materiaux_support.papyrus == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_papyrus.label }}</label>
+                </td>
+                <td>
+                    {% if report.materiaux_support.ivoire == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_ivoire.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.materiaux_support.cuir == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_cuir.label }}</label>
+                </td>
+                <td>
+                    {% if report.materiaux_support.parchemin == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_parchemin.label }}</label>
+                </td>
+                <td>
+                    {% if report.materiaux_support.soie == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_soie.label }}</label>
+                </td>
+                <td>
+                    {% if report.materiaux_support.toile == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_toile.label }}</label>
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td>
+                    {% if report.materiaux_support.papier == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_papier.label }}</label>
+                </td>
+                <td>
+                    {% if report.materiaux_support.papier_machine == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_papier_machine.label }}</label>
+                </td>
+                <td>
+                    {% if report.materiaux_support.papier_main == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_papier_main.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.materiaux_support.papier_oriental == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_papier_oriental.label }}</label>
+                </td>
+                <td>
+                    {% if report.materiaux_support.papier_occidental == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_papier_occidental.label }}</label>
+                </td>
+                <td>
+                    {% if report.materiaux_support.papier_velin == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_papier_velin.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.materiaux_support.papier_base_fibre_vegetale == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_papier_base_fibre_vegetale.label }}</label>
+                </td>
+                <td>
+                    {% if report.materiaux_support.papier_a_base_de_bois == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_papier_a_base_de_bois.label }}</label>
+                </td>
+                <td>
+                    {% if report.materiaux_support.filigrane == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_filigrane.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.materiaux_support.papier_verge == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_materiaux_support_papier_verge.label }}</label>
+                </td>
+                <td>
+                    <label>{{ form.art_graphique_materiaux_support_nombre_intervalles_vergeures.label }}</label>&nbsp;
+                    {{ report.materiaux_support.intervalles_des_vergeures }}
+                </td>
+                <td>
+                    <label>{{ form.art_graphique_materiaux_support_nombre_intervalles_pontuseaux.label }}</label>&nbsp;
+                    {{ report.materiaux_support.intervalles_de_pontuseaux }}
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<div id="technique1">
+
+    <h4>Technique</h4>
+
+    <div class="to-border-tr">
+
+        <table>
+            <caption>Technique du dessin</caption>            
+            <tr>
+                <td>
+                    {% if report.technique_dessein.pointe_de_metal == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_stylet_pointe_metal.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_dessein.stylet_ou_pierre_noire == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_pierre_noire.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_dessein.fusain_crayon_comte == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_fusain_crayon_comte.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_dessein.graphite == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_graphite.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.technique_dessein.sanguine == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_sanguine.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_dessein.craie_blanche == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_craie_blanche.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_dessein.crayon_de_couleurs == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_crayon_de_couleurs.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_dessein.rehauts_blancs == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_rehauts_blancs.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.technique_dessein.pastel == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_pastel.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_dessein.encre_au_carbone == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_encre_au_carbone.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_dessein.encre_brune == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_encre_brune.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_dessein.encre_metallogallique == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_encre_metallogallique.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.technique_dessein.peinture_a_l_huile_et_essence_terebentine_sur_papier == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_peinture_huile_et_essence_terebenthine_sur_papier.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_dessein.encre_de_couleur == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_encre_de_couleur.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_dessein.tempera == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_tempera.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_dessein.gouache == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_gouache.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.technique_dessein.aquarelle == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_aquarelle.label }}</label>
+                </td>
+                <td colspan="3">
+                    {% if report.technique_dessein.autre == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_dessin_autre.label }}</label> {{ report.technique_dessein.autre_technique_dessin }}</td>                
+            </tr>
+
+        </table>
+
+        <table>
+
+            <caption>Technique de l'estampe</caption>
+
+            <tr>
+                <td>
+                    {% if report.technique_estampe.burin == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_estampe_burin.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_estampe.xylographie == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_estampe_xylographie.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_estampe.taille_d_epargne == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_estampe_taille_epargne.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_estampe.eau_forte == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_estampe_eau_forte.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.technique_estampe.aquatinte == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_estampe_aquatinte.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_estampe.taille_douce == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_estampe_taille_douce.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_estampe.lithographie == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_estampe_lithographie.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_estampe.pointe_seche == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_estampe_pointe_seche.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.technique_estampe.maniere_noire == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_estampe_maniere_noire.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_estampe.maniere_au_crayon == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_estampe_maniere_au_crayon.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_estampe.procede_au_pochoir == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_estampe_procede_au_pochoir.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_estampe.serigraphie == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_estampe_serigraphie.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3">
+                    {% if report.technique_estampe.technique_combinees == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_estampe_techniques_combinees.label }}</label> {{ report.technique_estampe.technique_combinees_technique_estampe }}</td>                
+            </tr>
+
+        </table>
+
+        <table>
+
+            <caption>Autre technique graphique</caption>
+
+            <tr>
+                <td>
+                    {% if report.autre_technique_graphique.encre_a_imprimer_a_l_eau == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_autre_technique_graphique_encre_a_imprimer_eau.label }}</label>
+                </td>
+                <td>
+                    {% if report.autre_technique_graphique.encre_a_imprimer_a_l_huile == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_autre_technique_graphique_encre_a_imprimer_huile.label }}</label>
+                </td>
+            </tr>          
+
+        </table>
+
+        <table>
+            <caption>Technique de reproduction</caption>
+
+            <tr>
+                <td>
+                    {% if report.technique_reproduction.heliogravure == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_reproduction_heliogravure.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique_reproduction.quadrichromie_offset == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_reproduction_quadrichromie_offset.label }}</label>
+                </td>                
+            </tr>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block option2 %}
+
+<div id="support">
+
+    <h4>Support</h4>
+
+    <div class="to-border-tr">
+        <table>            
+            <tr>
+                <td>
+                    {% if report.support.amincissement == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_amincissement.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.fragilite == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_fragilite.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.trous_de_punaises == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_trou_de_punaises.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support.anciennes_restauration == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_anciennes_restaurations.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.gondrolement == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_gondolement.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.trace_de_colle == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_trace_de_colle.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support.brulure == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_brulure.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.pliure == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_pliure.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.residus_d_adhesif == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_residus_adhesifs.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support.cassant == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_cassant.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.piqure == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_piqure.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.rouille == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_rouille.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support.coupure == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_coupure.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.papier_froisse == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_papier_froisse.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.taches_claires == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_taches_claires.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support.dechirure == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_dechirure.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.lacune == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_lacune.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.taches_diverses == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_taches_diverses.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support.decoloration == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_decoloration.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.rigidite == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_rigidite.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.zone_brune == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_zone_brune.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support.deformations == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_deformations.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.peluches == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_peluches.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.poussieres == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_poussieres.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support.depot_matiere_formant_tache == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_depot_matiere_formant_tache.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.perforation == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_perforation.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.insectes == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_insectes.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support.dislocation_des_fibres_cellulose == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_dislocation_des_fibres_cellulose.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.jaunissement_generalise == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_jaunissement_generalise.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.trou_d_insectes == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_trou_d_insectes.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support.doublage_defectueux == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_doublage_defectueux.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.jaunissement_localise == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_jaunissement_localise.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.micro_organismes == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_micro_organismes.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support.epidermages == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_epidermages.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.impregnation_d_un_produit_gras == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_impregnation_produit_gras.label }}</label>
+                </td>
+                <td>
+                    {% if report.support.moisissures_ou_bacteries == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_support_moisissures_bacteries.label }}</label>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<div id="technique2">
+
+    <h4>Technique</h4>
+
+    <div class="to-border-tr">
+        <table>            
+            <tr>
+                <td>
+                    {% if report.technique.affaiblissement_des_traits == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_affaiblissement_des_traits.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique.craquelure == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_craquelure.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique.fixatif_altere == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_fixatif_altere.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.technique.anciennes_restaurations == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_anciennes_restaurations.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique.decapage == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_decapage.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique.jaunissement == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_jaunissement.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.technique.corrosion_de_l_encre == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_corrosion_encre.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique.encaillage_des_gouaches == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_ecaillage_des_gouaches.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique.vernis_altere == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_vernis_altere.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.technique.couleurs_qui_ont_fuse == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_couleurs_qui_ont_fuse.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique.manques == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_manques.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique.trait_degrade == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_traits_degrade.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.technique.couleurs_eclaircies == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_couleurs_eclaircies.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique.pulverulence == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_pulverulence.label }}</label>
+                </td>
+                <td>
+                    {% if report.technique.teintes_palies == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_teintes_palies.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.technique.teintes_transformees == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_technique_teintes_transformees.label }}</label>
+                </td>                
+            </tr>            
+
+        </table>
+    </div>
+</div>
+
+<div id="montage">
+
+    <h4>Montage</h4>
+            
+    <div class="to-border-tr">
+        <table>            
+            <tr>
+                <td>
+                    {% if report.montage.carton_au_verso == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_montage_carton_au_verso.label }}</label>
+                </td>
+                <td>
+                    {% if report.montage.colle_en_plein == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_montage_colle_en_plein.label }}</label>
+                </td>
+                <td>
+                    {% if report.montage.anciennes_restauration == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_montage_anciennes_restaurations.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.montage.fenetre_au_recto == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_montage_fenetre_au_recto.label }}</label>
+                </td>
+                <td>
+                    {% if report.montage.colle_par_les_bords == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_montage_colle_par_les_bords.label }}</label>
+                </td>
+                <td>
+                    {% if report.montage.defaut_d_adherance == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_montage_defaut_adherence.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.montage.passepartout == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_montage_passepartout.label }}</label>
+                </td>
+                <td>
+                    {% if report.montage.fausse_marge == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_montage_fausse_marge.label }}</label>
+                </td>
+                <td>
+                    {% if report.montage.charniere_en_japon == True %}<input type="checkbox" checked>
+                    {% else %}<input type="checkbox">{% endif %} <label>{{ form.art_graphique_montage_charniere_en_japon.label }}</label>
+                </td>
+            </tr>                    
+
+        </table>
+    </div>
+</div>
+        
+<!-- Place to put the pics of alterations -->
+
+<div>
+    <table id="tab-photos-significatives-support">
+
+        <caption>Photos significatives</caption>
+
+        <tr>
+            <td>Photo de détail</td>
+            <td>Emplacement</td>
+        </tr>
+
+        {% for pic in pht_signs_support %}
+        <tr>
+            <td>
+                {% if pic.photo.url != '' %}
+                <img src="{{ pic.photo.url }}" width="200">
+                {% endif %}
+            </td>
+            <td>
+                {% if pic.photo_avec_emplacement.url != '' %}
+                <img src="{{ pic.photo_avec_emplacement.url }}" width="200">
+                {% endif %}
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Nature de l'altération: {{ pic.nature_alteration }}</td>
+            <td>
+                {% if pic.face %}
+                <input type="radio" checked> <label>Face</label><br>
+                <input type="radio" > <label>Revers</label><br>
+                {% else %}
+                <input type="radio" > <label>Face</label><br>
+                <input type="radio" checked> <label>Revers</label><br>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+
+</div>   
+
+{% endblock%}

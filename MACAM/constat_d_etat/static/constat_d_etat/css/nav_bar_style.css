@@ -1,0 +1,98 @@
+html {
+	overflow-x: hidden;
+}
+.logo-in-nav-bar {
+	width: 15%;
+	margin-left: 5%;
+	height: 100%;
+}
+
+/*
+.three-dot {
+    width: 30px;
+    line-height: 80px;
+    float: right;
+    margin-right: 5%;
+    cursor: pointer;
+}*/
+
+nav {
+	height: 80px;
+	/*width: 100%;*/
+	margin-top: 0px;
+	color: rgb(214, 43, 43);
+	background-color: rgb(70, 194, 72, 0.4);
+}
+.three_dots {
+	color: black;
+	width: 50px;
+	display: none;
+}
+
+nav ul {
+	float: right;
+	margin-right: 40px;
+}
+
+nav li {
+	display: inline-block;
+	margin: 0 8px;
+	line-height: 80px;
+}
+
+nav a {
+	color: white;
+	font-size: 18px;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: 1px solid transparent;
+	border-radius: 3px;
+}
+
+.nav-bar a:hover {
+	border: 1px solid white;
+	transition: .5s;
+	padding: 7px;
+}
+
+@media screen and (max-width: 1024px) {
+	nav {
+		height: 130px;
+	}
+
+	.logo-in-nav-bar {
+		width: 30%;
+	}
+
+	.three_dots {
+		display: inline-block;
+		position: absolute;
+		top: 2%;
+		right: 5%;
+		width: 10%;
+	}
+
+	.nav-bar {
+		position: relative;
+		position: absolute;
+		width: 300px;
+		right: 0;
+		clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+		transition: all 0.2s linear;
+	}
+
+	.nav-bar.active {
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+	}
+
+	.nav-bar li {
+		display: block;
+		background: green;
+		padding: 10px;
+		text-align: center;
+	}
+
+	.nav-bar li a {
+		font-size: 1.5em;
+	}
+}

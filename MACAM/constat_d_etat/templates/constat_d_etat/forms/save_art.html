@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        {% load static %}
+        <title>{% block title %}{% endblock %}</title>        
+        <link rel="stylesheet" type="text/css" href="{% static 'constat_d_etat/css/template_style2.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'constat_d_etat/css/save_art_style.css' %}" />  
+    </head>
+
+    <body>
+
+        <div class="principal">
+            
+            <form method="POST" id="first" enctype="multipart/form-data" action="{% block form_action %}{% endblock %}">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+
+                <div id="photos">
+                    <a href="{% url 'constat:index' %}"><img src="{% static 'constat_d_etat/img/logo1.png' %}"></a>
+
+                    <h2>Oeuvre d'art</h2>
+
+                    <table id="id-pic-table">
+                        <tr>
+                            <td colspan="2">Photos d' idendification</td>
+                        </tr>
+                        <tr>
+                            <td>Face</td>
+                            <td>Revers</td>
+                        </tr>
+                        <tr class="pic-row">
+                            {{ form.photo_oeuvre_face.errors }}
+                            <td>{{ form.photo_oeuvre_face }}</td>
+                            {{ form.photo_oeuvre_revers.errors }}
+                            <td>{{ form.photo_oeuvre_revers }}</td>
+                        </tr>
+                    </table>
+                </div>            
+
+                <div class="to-border">
+                    <div id="informations">
+                        <table>
+                            <tr>
+                                {{ form.institution.errors }}
+                                <td><label class="label-bold" for="{{ form.institution.id_for_label }}">{{ form.institution.label }}</label></td>
+                                <td>{{ form.institution }}</td>
+                            </tr>
+
+                            <tr>
+                                {{ form.numero_inventaire.errors }}
+                                <td><label class="label-bold" for="{{ form.numero_inventaire.id_for_label }}">{{ form.numero_inventaire.label }}<label></td>
+                                <td>{{ form.numero_inventaire }}</td>                                
+                            </tr>
+
+                            <tr>
+                                {{ form.titre_oeuvre.errors }}
+                                <td><label class="label-bold" for="{{ form.titre_oeuvre.id_for_label }}">{{ form.titre_oeuvre.label }}</label></td>
+                                <td>{{ form.titre_oeuvre }}</td>
+
+                                <td><label class="label-bold" for="{{ form.type_oeuvre.id_for_label }}">{{ form.type_oeuvre.label }}</label></td>
+                                <td>{{ form.type_oeuvre }}</td>                            </tr>
+
+                            <tr>
+                                {{ form.auteur_oeuvre.errors }}
+                                <td><label class="label-bold" for="{{ form.auteur_oeuvre.id_for_label }}">{{ form.auteur_oeuvre.label }}</label></td>
+                                <td>{{ form.auteur_oeuvre }}</td>
+                            </tr>
+                        </table>                
+
+                        <table>
+                            <tr>
+                                <td><label class="label-bold">Dimensions : </label></td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td><label>Hauteur</label></td>
+                                <td><label>Largeur</label></td>
+                                <td><label>Epaisseur</label></td>
+                            </tr>
+
+                            <tr>
+                                <td><label>Avec cadre : </label></td>
+                                <td>{{ form.hauteur_avec_cadre }}<label>cm</label></td>
+                                <td>{{ form.largeur_avec_cadre }}<label>cm</label></td>
+                                <td>{{ form.epaisseur_avec_cadre }}<label>cm</label></td>
+                            </tr>
+
+                            <tr>
+                            <td><label>Sans cadre : </label></td>
+                                <td>{{ form.hauteur_sans_cadre }}<label>cm</label></td>
+                                <td>{{ form.largeur_sans_cadre }}<label>cm</label></td>
+                                <td>{{ form.epaisseur_sans_cadre }}<label>cm</label></td>
+                            </tr>
+
+                            <tr><td><label class="label-bold">Format : </label></td></tr>
+                        </table>                
+
+                        <table>
+                            <tr>
+                                <td>{{ form.format_oeuvre }}</td> 
+                                <td>{{ form.autre_format }}</td>                                
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <input type="submit" value="Enregistrer">
+
+            </form>
+        </div>
+    </body>
+</html>

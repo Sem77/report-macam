@@ -1,0 +1,17 @@
+<form action="{% url 'constat:search_art_work' %}" method="POST" class="form-search-art">
+    {% csrf_token %} 
+    
+    <div class="criterion">
+        <label>Type oeuvre d'art : </label>                        
+        {{ form_search.art_type }}
+
+        <label>Recherche par : </label>
+        {{ form_search.search_by }}
+    </div>
+
+    <div class="search-bar">
+        {{ form_search.query }}
+        <input type="submit" value="Recherche">   
+    </div> 
+    
+</form>    

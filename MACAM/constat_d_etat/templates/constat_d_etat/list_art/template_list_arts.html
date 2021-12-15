@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        {% load static %}
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="{% static 'constat_d_etat/css/nav_bar_style.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'constat_d_etat/css/list_art_style.css' %}" />
+        <script src="{% static 'constat_d_etat/js/show_nav_bar.js' %}" defer></script>
+    </head>
+
+    <body>
+
+        {% include 'constat_d_etat/template_nav_bar.html' %}
+
+        <div class="principal">
+
+            <div class="box">   
+                {% include 'constat_d_etat/forms/form_search_art.html'%} 
+            </div>
+
+            <div class="list-arts">
+                <form>
+                    {% for art in arts %}
+
+                    <table class="arts-table">
+                        <tr>
+                            {% if art.photo_face.url != "" %}
+                                <td><a href="{% url 'constat:preview_art_work' art_type=art_type art_work_id=art.id %}" class="pic-art"><img src="{{ art.photo_face.url }}" width="190" height="185"></a></td>
+                            {% else %}
+                                <td><a href="{% url 'constat:preview_art_work' art_type=art_type art_work_id=art.id %}" class="pic-art"><img src="{% static 'constat_d_etat/img/image-missing.jpg' %}" width="190" height="185"></a></td>
+                            {% endif %}
+                            {% if art.photo_revers.url != "" %}
+                                <td><a href="{% url 'constat:preview_art_work' art_type=art_type art_work_id=art.id %}" class="pic-art"><img src="{{ art.photo_revers.url }}" width="190" height="185"></a></td>
+                            {% else %}
+                                <td><a href="{% url 'constat:preview_art_work' art_type=art_type art_work_id=art.id %}" class="pic-art"><img src="{% static 'constat_d_etat/img/image-missing.jpg' %}" width="190" height="185"></a></td>
+                            {% endif %}
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td><label>Numéro d'inventaire : </label></td>
+                                        <td>{{ art.numero_inventaire }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Titre : </label></td>
+                                        <td>{{ art.titre }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Auteur : </label></td>
+                                        <td>{{ art.auteur }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Format : </label></td>
+                                        <td>{{ art.format_oeuvre }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Dimensions : </label></td>
+                                        <td>{{ art.largeur_sans_cadre }}cm x {{ art.hauteur_sans_cadre }}cm</td>
+                                    </tr>
+                                </table>                                    
+                            </td>
+                        </tr>
+                    </table>
+
+                    {% empty %}
+                        <p>Aucune oeuvre ne correspond à votre recherche</p>
+                    {% endfor %}
+                </form>
+            </div>
+
+            {% block next_button %}{% endblock %}            
+
+        </div>
+
+    </body>
+
+</html>

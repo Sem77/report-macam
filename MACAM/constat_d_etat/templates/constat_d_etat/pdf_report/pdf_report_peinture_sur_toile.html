@@ -1,0 +1,708 @@
+{% extends 'constat_d_etat/pdf_report/template_pdf_report_peinture.html' %}
+
+{% load static %}
+
+{% block title %}
+    Formulaire peinture sur toile
+{% endblock %}
+
+
+{% block artwork_type %}
+    peinture sur toile
+{% endblock %}
+
+{% block art_picture %}
+    <tr class="pic-row">
+        {% if report.peinture_sur_toile.photo_face.url != "" %}
+            <td><img src="{{ report.peinture_sur_toile.photo_face.path }}" width="300" height="300"></td>
+        {% else %}
+            <td><img src="{% static 'constat_d_etat/img/image-missing.jpg' %}" width="300" height="300"></td>
+        {% endif %}
+        
+        {% if report.peinture_sur_toile.photo_revers.url != "" %}
+            <td><img src="{{ report.peinture_sur_toile.photo_revers.path }}" width="300" height="300"></td>
+        {% else %}
+            <td><img src="{% static 'constat_d_etat/img/image-missing.jpg' %}" width="300" height="300"></td>
+        {% endif %}
+    </tr>
+{% endblock %}
+
+{% block art_info %}
+    <div class="to-border">
+        <div id="informations">
+            <table>
+                <tr>
+                    <td><label class="label-bold">{{ form.lieu_de_conservation.label }}</label></td>
+                    <td>{{ report.lieu_conservation }}</td>                                
+                </tr>                            
+
+                <tr>
+                    <td><label class="label-bold">{{ form.ville.label }}</label></td>
+                    <td>{{ report.ville }}</td>
+
+                    <td><label class="label-bold">Institution : </label></td>
+                    <td>{{ report.peinture_sur_toile.institution }}</td>
+                </tr>
+
+                <tr>
+                    <td><label class="label-bold">Numéro d'inventaire : <label></td>
+                    <td>{{ report.peinture_sur_toile.numero_inventaire }}</td>
+
+                    <td><label class="label-bold">{{ form.emplacement_oeuvre.label }} : </label></td>
+                    <td>{{ report.emplacement }}</td>
+                </tr>
+
+                <tr>
+                    <td><label class="label-bold">Titre : </label></td>
+                    <td>{{ report.peinture_sur_toile.titre }}</td>
+                </tr>
+
+                <tr>
+                    <td><label class="label-bold">Auteur : </label></td>
+                    <td>{{ report.peinture_sur_toile.auteur }}</td>
+                </tr>
+            </table>
+
+            <table id="dim-table">
+                <tr>
+                    <td><label class="label-bold">Dimensions : </label></td>
+                </tr>
+
+                <tr>
+                    <td> </td>
+                    <td><label>Hauteur</label></td>
+                    <td><label>Largeur</label></td>
+                    <td><label>Epaisseur</label></td>
+                </tr>
+
+                <tr>
+                    <td><label>Avec cadre : </label></td>
+                    <td>{{ report.peinture_sur_toile.hauteur_avec_cadre }}<label>cm</label></td>
+                    <td>{{ report.peinture_sur_toile.largeur_avec_cadre }}<label>cm</label></td>
+                    <td>{{ report.peinture_sur_toile.epaisseur_avec_cadre }}<label>cm</label></td>
+                </tr>
+
+                <tr>
+                    <td><label>Sans cadre : </label></td>
+                    <td>{{ report.peinture_sur_toile.hauteur_sans_cadre }}<label>cm</label></td>
+                    <td>{{ report.peinture_sur_toile.largeur_sans_cadre }}<label>cm</label></td>
+                    <td>{{ report.peinture_sur_toile.epaisseur_sans_cadre }}<label>cm</label></td>
+                </tr>
+
+                <tr>
+                    <td colspan="4"><label class="label-bold">Format : </label>{{ report.peinture_sur_toile.format_oeuvre }}</td>
+                </tr>                    
+                    
+            </table>
+            
+        </div>
+    </div>
+{% endblock %}
+
+{% block alteration_pic %}
+    
+{% endblock %}
+
+{% block alteration_pic_adhesion %}
+    
+{% endblock %}
+
+{% block option2 %}
+
+<div id="support">
+
+    <h4>Support</h4>
+
+    {% if report.support_peinture_sur_toile.revers_inaccessible == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_caracteristiques_revers_inaccessible.label }}</label>
+
+    <div class="to-border-tr">
+        <table>            
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.caracteristiques.bon_etat == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_caracteristiques_bon_etat.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.caracteristiques.mauvais_etat == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_caracteristiques_mauvais_etat.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.caracteristiques.restaure == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_caracteristiques_restaure.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.caracteristiques.fendu == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_caracteristiques_fendu.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.caracteristiques.ouvert == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_caracteristiques_ouvert.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.caracteristiques.vermoulu == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_caracteristiques_vermoulu.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.caracteristiques.inscriptions == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_caracteristiques_inscriptions.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.caracteristiques.etiquettes == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_caracteristiques_etiquettes.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.caracteristiques.marques_ou_cachets == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_caracteristiques_marques_cachets.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.caracteristiques.caisson_climatique == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_caracteristiques_caisson_climatique.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.caracteristiques.protection_arriere == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_caracteristiques_protection_arriere.label }}</label>
+                </td>
+                <td>
+                    <label>{{ form.peinture_sur_toile_support_caracteristiques_nature_protection_arriere.label }}</label> {{ report.support_peinture_sur_toile.caracteristiques.nature_protection_arriere }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    {% if report.support_peinture_sur_toile.caracteristiques.trous_de_pitons_dans_les_planches == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_caracteristiques_trous_de_pitons_dans_les_planches.label }}</label>
+                </td>
+                <td>
+                    <label>{{ form.peinture_sur_toile_support_caracteristiques_nombre_trous_de_pitons_dans_les_planches.label }}</label> {{ report.support_peinture_sur_toile.caracteristiques.nombre_trous_de_pitons_dans_les_planches }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    {% if report.support_peinture_sur_toile.caracteristiques.trous_de_pitons_dans_les_traverses == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_caracteristiques_trous_de_pitons_dans_les_traverses.label }}</label>
+                </td>
+                <td>
+                    <label>{{ form.peinture_sur_toile_support_caracteristiques_nombre_trous_de_pitons_dans_les_traverses.label }}</label> {{ report.support_peinture_sur_toile.caracteristiques.nombre_trous_de_pitons_dans_les_traverses }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.caracteristiques.chassis_cadre == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_caracteristiques_chassis_cadre.label }}</label>
+                </td>
+                <td colspan="2">
+                    {% if report.support_peinture_sur_toile.caracteristiques.poignees_fixees_au_revers == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_caracteristiques_poignees_fixees_au_revers.label }}</label>&nbsp;&nbsp;&nbsp;
+                    <label>{{ form.peinture_sur_toile_support_caracteristiques_nature_poignees_fixees_au_revers.label }}</label> {{ report.support_peinture_sur_toile.caracteristiques.nature_poignees_fixees_au_revers }}&nbsp;&nbsp;&nbsp;
+                    <label>{{ form.peinture_sur_toile_support_caracteristiques_nombre_poignees_fixees_au_revers.label }}</label> {{ form.support_peinture_sur_toile.caracteristiques.nombre_poignees_fixees_au_revers }}                
+                </td>
+            </tr>
+
+        </table>
+
+        <h3>Essence</h3>
+        <table>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.essence.chene == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_essence_chene.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.essence.resineux == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_essence_resineux.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.essence.peuplier == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_essence_peuplier.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.essence.acajou == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_essence_acajou.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.essence.autre == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_essence_autre.label }}</label> {{ report.support_peinture_sur_toile.essence.essence_autre }}
+                </td>
+            </tr>        
+
+        </table>
+
+        <h3>Fil du bois</h3>
+        <table>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.fil_du_bois.horizontal == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_fil_du_bois_horizontal.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.fil_du_bois.vertical == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_fil_du_bois_vertical.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.fil_du_bois.regulier == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_fil_du_bois_regulier.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.fil_du_bois.irregulier == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_fil_du_bois_irregulier.label }}</label>
+                </td>
+            </tr>
+
+        </table>
+
+        <h3>Assemblage</h3>
+        <table>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.assemblage.plats_joints == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_assemblage_plats_joints.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.assemblage.rainures_ou_languettes == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_assemblage_rainures_languettes.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.assemblage.tenons_ou_mortaises == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_assemblage_tenons_mortaises.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.assemblage.queues_d_arondes == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_assemblage_queues_arrondes.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.assemblage.correct == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_assemblage_correct.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.assemblage.faible == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_assemblage_faible.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.assemblage.disjoint == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_assemblage_disjoint.label }}</label>
+                </td>
+            </tr>                    
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.assemblage.parquetage_mobile == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_assemblage_parquettage_mobile.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.assemblage.parquetage_bloque == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_assemblage_parquettage_bloque.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.assemblage.panneau_contraint == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_assemblage_panneau_contraint.label }}</label>
+                </td>
+            </tr>     
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.assemblage.traverses_originales == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_assemblage_traverses_originales.label }}</label>
+                </td>
+                <td>
+                    <label>{{ form.peinture_sur_toile_support_assemblage_nombre_de_traverses.label }}</label> 
+                    {{ report.support_peinture_sur_toile.assemblage.nombre_de_traverses }}
+                </td>
+                <td>
+                    <label>{{ form.peinture_sur_toile_support_assemblage_nombre_planches.label }}</label> 
+                    {{ report.support_peinture_sur_toile.assemblage.nombre_de_planches }}
+                </td>
+            </tr>                 
+
+        </table>
+
+        <h3>Revers</h3>
+        <table>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.revers.lisse == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_revers_lisse.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.revers.brut == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_revers_brut.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.revers.enduit == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_revers_enduit.label }}</label>
+                </td>
+            </tr>                              
+
+        </table>
+
+        <h3>Tranche</h3>
+        <table>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.tranche.invisible == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_tranche_invisible.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.tranche.visible == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_tranche_visible.label }}</label>
+                </td>
+                <td>                    
+                    <label>{{ form.peinture_sur_toile_support_tranche_etat.label }}</label> {{ report.support_peinture_sur_toile.tranche.etat }}
+                </td>
+            </tr>                              
+
+        </table>
+
+        <h3>Altérations</h3>
+        <table>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.alterations.percements == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_alterations_percements.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.alterations.eraflures == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_alterations_eraflures.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.alterations.cloques == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_alterations_cloques.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.alterations.coulures == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_alterations_coulures.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.alterations.moisissures == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_alterations_moisissures.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.alterations.poussiere == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_alterations_poussiere.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.alterations.encrassement == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_alterations_encrassement.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.alterations.aureoles == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_alterations_aureoles.label }}</label>
+                </td>
+            </tr>                    
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.alterations.effritement == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_alterations_effritement.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.alterations.fendillement == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_alterations_fendillement.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.alterations.trous_d_envol == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_alterations_trous_envol.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.alterations.galerie_d_insectes == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_alterations_galeries_insectes.label }}</label>
+                </td>
+            </tr>                       
+
+        </table>
+
+        <h3>Déformations</h3>
+        <table>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.deformations.localisees == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_deformations_localisees.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.deformations.generalisees == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_deformations_generalisees.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.deformations.panneau_voile == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_deformations_panneau_voile.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_toile.deformations.enfoncement_par_la_face == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_deformations_enfoncement_par_la_face.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.deformations.enfoncement_au_revers == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_deformations_enfoncement_au_revers.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_toile.deformations.panneau_aminci == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_support_deformations_panneau_aminci.label }}</label>
+                </td>
+            </tr>                    
+            
+        </table>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block option3 %}
+
+<div id="chassis">
+
+    <h4>Châssis</h4>
+
+    {% if report.chassis.revers_inaccessible == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_revers_inaccessible.label }}</label>
+
+    <div class="to-border-tr">
+        <table>
+            <tr>
+                <td>
+                    {% if report.chassis.caracteristiquesChassis.neuf == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_neuf.label }}</label>
+                </td>
+                <td>
+                    {% if report.chassis.caracteristiquesChassis.bon_etat == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_bon_etat.label }}</label>
+                </td>
+                <td>
+                    {% if report.chassis.caracteristiquesChassis.mauvais_etat == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_mauvais_etat.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.chassis.caracteristiquesChassis.d_origine == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_d_origine.label }}</label>
+                </td>
+                <td>
+                    {% if report.chassis.caracteristiquesChassis.chanfreine == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_chanfreine.label }}</label>
+                </td>
+                <td>
+                    {% if report.chassis.caracteristiquesChassis.renforts_d_angles == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_renforts_d_angles.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.chassis.caracteristiquesChassis.fendu == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_fendu.label }}</label>
+                </td>
+                <td>
+                    {% if report.chassis.caracteristiquesChassis.ouvert == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_ouvert.label }}</label>
+                </td>
+                <td>
+                    {% if report.chassis.caracteristiquesChassis.vermoulu == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_vermoulu.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.chassis.caracteristiquesChassis.traverses_horizontales == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;&nbsp;&nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_traverses_horizontales.label }}</label>&nbsp;&nbsp;&nbsp;
+                    <label>{{ form.peinture_sur_toile_chassis_caracteristiques_nombre_traverses_horizontales.label }}</label> {{ report.chassis.caracteristiquesChassis.nombre_traverses_horizontales }}                
+                </td>
+                <td>
+                    {% if report.chassis.caracteristiquesChassis.traverses_verticales == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_traverses_verticales.label }}</label>&nbsp;&nbsp;&nbsp;
+                    <label>{{ form.peinture_sur_toile_chassis_caracteristiques_nombre_traverses_verticales.label }}</label> {{ report.chassis.caracteristiquesChassis.nombre_traverses_verticales }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.chassis.caracteristiquesChassis.trous_de_pitons == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_trous_de_pitons.label }}</label></td>
+                <td>
+                    {% if report.chassis.caracteristiquesChassis.etiquettes == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_etiquettes.label }}</label></td>
+                <td>
+                    {% if report.chassis.caracteristiquesChassis.marques == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_marques.label }}</label></td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.chassis.caracteristiquesChassis.caisson_climatique == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_caisson_climatique.label }}</label></td>
+                <td colspan="2">
+                    {% if report.chassis.caracteristiquesChassis.protection_arriere == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_protection_arriere.label }}</label>&nbsp;&nbsp;&nbsp;
+                    <label>{{ form.peinture_sur_toile_chassis_caracteristiques_nature_protection_arriere.label }}</label> {{ report.chassis.caracteristiquesChassis.nature_protection_arriere }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    {% if report.chassis.caracteristiquesChassis.poignees_sur_montants == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_caracteristiques_poignees_sur_montants.label }}</label>&nbsp;&nbsp;&nbsp;
+                    <label>{{ form.peinture_sur_toile_chassis_caracteristiques_nature_poignees_sur_montants.label }}</label> {{ report.chassis.caracteristiquesChassis.nature_poignees_sur_montants }}&nbsp;&nbsp;&nbsp;
+                    <label>{{ form.peinture_sur_toile_chassis_caracteristiques_nombre_poignees_sur_montants.label }}</label> {{ report.chassis.caracteristiquesChassis.nombre_poignees_sur_montants }}
+                </td>
+            </tr>
+
+        </table>
+
+        <h3>Assemblage</h3>
+        <table>
+            <tr>
+                <td>
+                    {% if report.chassis.assemblage.correct == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_assemblage_correct.label }}</label>
+                </td>
+                <td>
+                    {% if report.chassis.assemblage.faible == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_assemblage_faible.label }}</label>
+                </td>
+                <td>
+                    {% if report.chassis.assemblage.disjoint == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_assemblage_disjoint.label }}</label>
+                </td>
+            </tr>
+        </table>
+
+        <h3>Clés</h3>
+        <table>
+            <tr>
+                <td>
+                    {% if report.chassis.cles.chassis_fixe == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_cles_chassis_fixe.label }}</label>
+                </td>
+                <td>
+                    {% if report.chassis.cles.chassis_a_cle == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_cles_chassis_a_cles.label }}</label>&nbsp;
+                    <label>{{ form.peinture_sur_toile_chassis_cles_nombre_cles_presentes.label }}</label> {{ report.chassis.cles.nombre_de_cles_presentes_chassis_a_cle }}
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.chassis.cles.manquantes == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_cles_manquantes.label }}</label>&nbsp;
+                    <label>{{ form.peinture_sur_toile_chassis_cles_nombre_manquantes.label }}</label> {{ report.chassis.cles.nombre_manquantes }}
+                </td>
+                <td>
+                    {% if report.chassis.cles.cassees == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_cles_cassees.label }}</label>&nbsp;
+                    <label>{{ form.peinture_sur_toile_chassis_cles_nombre_cassees.label }}</label> {{ report.chassis.cles.nombre_cassees }}
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.chassis.cles.vermoulues == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_cles_vermoules.label }}</label>&nbsp;
+                    <label>{{ form.peinture_sur_toile_chassis_cles_nombre_vermoules.label }}</label> {{ report.chassis.cles.nombre_vermoulues }}
+                </td>
+                <td>
+                    {% if report.chassis.cles.attachees == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_cles_attachees.label }}</label>&nbsp;
+                    <label>{{ form.peinture_sur_toile_chassis_cles_nombre_attachees.label }}</label> {{ report.chassis.cles.nombre_attachees }}
+                </td>
+            </tr>
+        </table>
+
+        <h3>Tranche</h3>
+        <table>
+            <tr>
+                <td>
+                    {% if report.chassis.tranche.invisible == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_tranche_invisible.label }}</label>
+                </td>
+                <td>
+                    {% if report.chassis.tranche.papier_de_bordage == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_tranche_papier_de_bordage.label }}</label>
+                </td>
+                <td><label>{{ form.peinture_sur_toile_chassis_tranche_etat.label }}</label> {{ report.chassis.tranche.etat_papier_de_bordage }}</td>
+            </tr>            
+        </table>
+
+        <h3>Semences</h3>
+        <table>
+            <tr>
+                <td>
+                    {% if report.chassis.semences.d_origine == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_semence_d_origine.label }}</label>
+                </td>
+                <td>
+                    {% if report.chassis.semences.ajoutees == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_semence_ajoutees.label }}</label>
+                </td>
+                <td>
+                    {% if report.chassis.semences.agrafes == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_semence_agrafes.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.chassis.semences.guirlande_de_tension == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_semence_guirlande_de_tension.label }}</label>
+                </td>
+                <td>
+                    {% if report.chassis.semences.corrosion == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_semence_corrosion.label }}</label>
+                </td>
+                <td>
+                    {% if report.chassis.semences.manques == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_toile_chassis_semence_manques.label }}</label>
+                </td>
+            </tr>                   
+
+        </table>
+    </div>
+</div>
+
+<!-- Place to put the pics of alterations -->
+
+<div>
+    <table>
+        <br>
+        <caption>Photos significatives</caption>
+
+        <tr>
+            <td>Photo de détail</td>
+            <td>Emplacement</td>
+        </tr>
+
+        {% for pic in pht_signs_chassis %}
+        <tr class="pht-sign">
+            <td>
+                {% if pic.photo.path != '' %}
+                <img src="{{ pic.photo.path }}" width="1000" height="1000">
+                {% endif %}
+            </td>
+            <td>
+                {% if pic.photo_avec_emplacement.path != '' %}
+                <img src="{{ pic.photo_avec_emplacement.path }}" width="1000" height="1000">
+                {% endif %}
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Nature de l'altération: {{ pic.nature_alteration }}</td>
+            <td>
+                {% if pic.face %}
+                Face
+                {% else %}
+                Revers
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+</div>
+
+{% endblock %}

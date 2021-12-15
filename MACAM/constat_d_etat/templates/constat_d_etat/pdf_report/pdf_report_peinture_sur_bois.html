@@ -1,0 +1,429 @@
+{% extends 'constat_d_etat/pdf_report/template_pdf_report_peinture.html' %}
+
+{% load static %}
+
+{% block title %}
+    Formulaire peinture sur bois
+{% endblock %}
+
+
+{% block artwork_type %}
+    peinture sur bois
+{% endblock %}
+
+{% block art_picture %}
+    <tr class="pic-row">
+        {% if report.peinture_sur_bois.photo_face.url != "" %}
+            <td><img src="{{ report.peinture_sur_bois.photo_face.path }}" width="300" height="300"></td>
+        {% else %}
+            <td><img src="{% static 'constat_d_etat/img/image-missing.jpg' %}" width="300" height="300"></td>
+        {% endif %}
+        
+        {% if report.peinture_sur_bois.photo_revers.url != "" %}
+            <td><img src="{{ report.peinture_sur_bois.photo_revers.path }}" width="300" height="300"></td>
+        {% else %}
+            <td><img src="{% static 'constat_d_etat/img/image-missing.jpg' %}" width="300" height="300"></td>
+        {% endif %}
+    </tr>
+{% endblock %}
+
+{% block art_info %}
+    <div class="to-border">
+        <div id="informations">
+            <table>
+                <tr>
+                    <td><label class="label-bold">{{ form.lieu_de_conservation.label }}</label></td>
+                    <td>{{ report.lieu_conservation }}</td>                                
+                </tr>                            
+
+                <tr>
+                    <td><label class="label-bold">{{ form.ville.label }}</label></td>
+                    <td>{{ report.ville }}</td>
+
+                    <td><label class="label-bold">Institution : </label></td>
+                    <td>{{ report.peinture_sur_bois.institution }}</td>
+                </tr>
+
+                <tr>
+                    <td><label class="label-bold">Numéro d'inventaire : <label></td>
+                    <td>{{ report.peinture_sur_bois.numero_inventaire }}</td>
+
+                    <td><label class="label-bold">{{ form.emplacement_oeuvre.label }} : </label></td>
+                    <td>{{ report.emplacement }}</td>
+                </tr>
+
+                <tr>
+                    <td><label class="label-bold">Titre : </label></td>
+                    <td>{{ report.peinture_sur_bois.titre }}</td>
+                </tr>
+
+                <tr>
+                    <td><label class="label-bold">Auteur : </label></td>
+                    <td>{{ report.peinture_sur_bois.auteur }}</td>
+                </tr>
+            </table>
+
+            <table id="dim-table">
+                <tr>
+                    <td><label class="label-bold">Dimensions : </label></td>
+                </tr>
+
+                <tr>
+                    <td> </td>
+                    <td><label>Hauteur</label></td>
+                    <td><label>Largeur</label></td>
+                    <td><label>Epaisseur</label></td>
+                </tr>
+
+                <tr>
+                    <td><label>Avec cadre : </label></td>
+                    <td>{{ report.peinture_sur_bois.hauteur_avec_cadre }}<label>cm</label></td>
+                    <td>{{ report.peinture_sur_bois.largeur_avec_cadre }}<label>cm</label></td>
+                    <td>{{ report.peinture_sur_bois.epaisseur_avec_cadre }}<label>cm</label></td>
+                </tr>
+
+                <tr>
+                    <td><label>Sans cadre : </label></td>
+                    <td>{{ report.peinture_sur_bois.hauteur_sans_cadre }}<label>cm</label></td>
+                    <td>{{ report.peinture_sur_bois.largeur_sans_cadre }}<label>cm</label></td>
+                    <td>{{ report.peinture_sur_bois.epaisseur_sans_cadre }}<label>cm</label></td>
+                </tr>
+
+                <tr>
+                    <td colspan="4"><label class="label-bold">Format : </label>{{ report.peinture_sur_bois.format_oeuvre }}</td>
+                </tr>                    
+                    
+            </table>
+            
+        </div>
+    </div>
+{% endblock %}
+
+{% block alteration_pic %}
+    
+{% endblock %}
+
+{% block alteration_pic_adhesion %}
+    
+{% endblock %}
+
+{% block option3 %}
+    
+{% endblock %}
+
+{% block option2 %}
+
+<div id="support">
+
+    <h4>Support</h4>
+
+    <div class="to-border-tr">
+        <h3>Constitution</h3>
+        <table>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.armure_toile == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_armure_toile.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.armure_sergee == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_armure_sergee.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.armure_satin == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_armure_satin.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.papier_maroufle == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_papier_maroufle.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.tissage_de_la_toile == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_tissage_toile.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.lache == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_lache.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.moyen == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_moyen.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.serre == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_serre.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.toile_originale == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_toile_originale.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.rentoilage == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_rentoilage.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.doublage == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_doublage.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.doublage_aveugle == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_doublage_aveugle.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.agrandissement == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_agrandissement.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.coutures == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_coutures.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.noeud_de_toile == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_noeuds_toile.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.bande_de_tension == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_bande_tension.label }}</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.transposition == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_transposition.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.marouflage == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_marouflage.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.pieces == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_pieces.label }}</label>
+                </td>
+                <td>
+                    <label>{{ form.peinture_sur_bois_constitution_nombre_pieces.label }}</label> {{ report.support_peinture_sur_bois.constitution.nombre_pieces }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.inscriptions == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_inscriptions.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.constitution.etiquettes == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_etiquettes.label }}</label>
+                </td>
+                <td colspan="2">
+                    {% if report.support_peinture_sur_bois.constitution.marques_ou_cachets == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_constitution_marques_cachets.label }}</label>
+                </td>
+            </tr>
+        </table>
+
+        <h3>Tension</h3>
+        <table>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_bois.tension.tension_correcte == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_tension_tension_correcte.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.tension.toile_tres_lache == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_tension_toile_tres_lache.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.tension.toile_lache == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_tension_toile_lache.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.tension.toile_trop_tendue == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_tension_toile_trop_tendue.label }}</label>
+                </td>
+            </tr>
+        </table>
+
+        <h3>Altérations</h3>
+        <table>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_bois.alterations.toile_cuite == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_alterations_toile_cuite.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.alterations.toile_impregnee == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_alterations_toile_impregnee.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.alterations.aureoles == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_alterations_aureoles.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.alterations.coulures == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_alterations_coulures.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_bois.alterations.dechirures_simples == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_alterations_dechirures_simples.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.alterations.dechirures_complexes == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_alterations_dechirures_complexes.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.alterations.coupures == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_alterations_coupure.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.alterations.lacerations == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_alterations_lacerations.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_bois.alterations.percement == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_alterations_percement.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.alterations.eraflures == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_alterations_eraflures.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.alterations.cloques == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_alterations_cloques.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.alterations.poussiere == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_alterations_poussiere.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_bois.alterations.encrassement == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_alterations_encrassement.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.alterations.trous_d_envol == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_alterations_trous_envol.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.alterations.moisissures == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_alterations_moisissures.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.alterations.infestation_active == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_alterations_infestation_active.label }}</label>
+                </td>
+            </tr>
+
+        </table>
+
+        <h3>Déformations</h3>
+        <table>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_bois.deformations.localisees == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_deformations_localisees.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.deformations.generales == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_deformations_generales.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.deformations.poches == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_deformations_poche.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.deformations.en_drapeau == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_deformations_en_drapeau.label }}</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_bois.deformations.plis == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_deformations_plis.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.deformations.plis_d_angles == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_deformations_plis_angles.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.deformations.retraits == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_deformations_retraits.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.deformations.effets_de_vagues == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_deformations_effets_vagues.label }}</label>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                    {% if report.support_peinture_sur_bois.deformations.scrupules == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_deformations_scrupules.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.deformations.enfoncement_par_la_face == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_deformations_enfoncement_par_la_face.label }}</label>
+                </td>
+                <td>
+                    {% if report.support_peinture_sur_bois.deformations.enfoncement_par_le_revers == True %} <img src="constat_d_etat/static/constat_d_etat/img/checked_checkbox.ico" height="25px" width="25px"/> &nbsp;
+                    {% else %} <img src="constat_d_etat/static/constat_d_etat/img/unchecked_checkbox.ico" height="25px" width="25px"/> &nbsp; {% endif %} <label>{{ form.peinture_sur_bois_deformations_enfoncement_par_le_revers.label }}</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Place to put the pics of alterations -->
+
+<div>
+    <table>
+        <br>
+        <caption>Photos significatives</caption>
+
+        <tr>
+            <td>Photo de détail</td>
+            <td>Emplacement</td>
+        </tr>
+
+        {% for pic in pht_signs_support %}
+        <tr class="pht-sign">
+            <td>
+                {% if pic.photo.path != '' %}
+                <img src="{{ pic.photo.path }}" width="1000" height="1000">
+                {% endif %}
+            </td>
+            <td>
+                {% if pic.photo_avec_emplacement.path != '' %}
+                <img src="{{ pic.photo_avec_emplacement.path }}" width="1000" height="1000">
+                {% endif %}
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Nature de l'altération: {{ pic.nature_alteration }}</td>
+            <td>
+                {% if pic.face %}
+                Face
+                {% else %}
+                Revers
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+</div>
+
+{% endblock %}

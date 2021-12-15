@@ -1,0 +1,15 @@
+{% load static %}
+    
+<nav>
+
+    <a href="{% url 'constat:index' %}"><img class="logo-in-nav-bar" src="{% static 'constat_d_etat/img/logo1.png' %}"></a>
+    <img src="{% static 'constat_d_etat/img/three_dots.png' %}" class="three_dots">
+    <ul class="nav-bar">
+        <li><a href="{% url 'constat:list_arts' art_type='art_graphique' page_number=1 %}">Art graphique</a></li>
+        <li><a href="{% url 'constat:list_arts' art_type='peinture_sur_bois' page_number=1 %}">Peinture sur bois</a></li>
+        <li><a href="{% url 'constat:list_arts' art_type='peinture_sur_toile' page_number=1 %}">Peinture sur toile</a></li>
+    </ul>
+
+
+</nav>
+    

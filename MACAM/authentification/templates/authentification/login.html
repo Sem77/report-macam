@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        {% load static %}
+        <title>Connexion</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'authentification/css/style_login.css' %}">
+    </head>
+
+    <body>
+
+        <div class="login-box">
+            <h1>Connexion</h1> 
+
+            <form method="POST" action="{% url 'authentification:log_in' %}">
+                {% csrf_token %}
+                
+                <div class="textbox">
+                    <img src="{% static 'authentification/img/username.png' %}">
+                    {{ form.username }} 
+                </div>
+                
+                <div class="textbox">
+                    <img src="{% static 'authentification/img/password.png' %}">
+                    {{ form.password }}
+                </div>
+
+                <input class="btn" type="submit" value="Connectez-vous">
+
+            </form>
+        </div>
+
+    </body>
+
+</html>
